@@ -1,0 +1,412 @@
+
+
+
+
+
+
+@media screen and (max-width:320px){
+    .banner{
+        padding: 50px 0;
+    }
+    .banner-heading {
+        font-size: 25px;
+        font-weight: bold;
+        line-height: 36px;
+        width: 80%;
+    }
+    .banner-para {
+        font-size: 14px;
+        color: #777777;
+        width: 90%;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+    .get-bt {
+        padding: 10px 104px;
+    }
+
+    .our-company{
+        padding: 50px 0;
+    }
+    .myob img{
+        width: 50%;
+        margin: 0 auto;
+        padding-bottom: 20px;
+    }
+    .ourcompany-inner{
+        display: unset;
+
+    }
+    .counter{
+        padding: 50px 0;
+    }
+    .tab-content{
+        padding: 0 0 50px;
+    }
+    .service{
+        padding: 50px 0;
+    }
+        
+    .service-para {
+        font-size: 14px;
+        width: 100%;}
+    .portfolio{
+        padding: 50px 0;
+    }
+    .portfolio-para {
+        width: 100%;
+    }
+    .portfolio-nav{
+        flex: unset;
+
+    }
+    .card-body {
+        background-color: #252525;
+        transition: 0.3 sec linear;
+        margin-bottom: 20px;}
+    .our-team{
+        padding: 50px 0;
+    }
+    .ourteam-para {
+        width: 100%;
+        margin: 0 auto}
+        .team-member {
+            position: relative;
+            margin-bottom: 20px;}
+    .team-slide{
+        margin-bottom: 20px;
+    }
+    footer{
+        padding: 50px 0;
+    }
+    .footer-last{
+        margin-bottom: 20px;
+    }
+    .form{
+        display: block;
+        
+    }
+    .email{
+        margin-bottom: 20px;
+    }
+    .copyright{
+        display: block;
+    }
+}
+.kings{
+    color: blue;
+}
+.card1-img-top{
+    border-radius: 50px;
+    background-image: linear-gradient(rgb(223, 222, 222), yellow);
+    transition: all 1.5s;
+}
+.card1-img-top:hover{
+    background-image: linear-gradient(rgb(223, 222, 222), yellow);
+}
+.card222-group {
+    margin-top:-10px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    position: relative;
+    right: 15px;
+    outline: 3px solid #0e0d0d; /* Outline */
+    width: 90%;
+    height: 415px;
+    
+  }
+
+  .card222 {
+    background-color: #f0f0f0;
+    padding: 1px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    outline: 2px solid #ccc; /* Outline */
+    text-align: center;
+    width: 300px;
+    height: 360px;
+    position: relative;
+    left: 15px;
+    margin-top: 20px;
+
+
+  }
+  .card222-body{
+      margin-top: -20px;
+      justify-content: center;
+      align-items: center;
+      width: 220px;
+      height: 280px;
+      
+  }
+  .kings1{
+    color: blue;
+    font-family: Georgia, serif;
+    font-size: 60px;
+    position: relative;
+    left: 20px;
+}
+.kings2{
+    color: blue;
+    font-family: Georgia, serif;
+    font-size: 60px;
+    position: relative;
+    left:-490px;
+}
+.gallery1-content{
+    flex: 1;
+    transition: all 1s;
+    display: flex; /* Enable flexbox for centering content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    color: white; /* Set text color to white for visibility */
+    font-size: 1.5em; /* Set a larger font size */
+    font-weight: bold; /* Make text bold */
+    position: relative;
+    left: 10px;
+    
+}
+.gallery1 {
+    display: flex;
+    gap: 1rem;
+    height: 300px;
+    width: 50%;
+    border-radius: 40px;
+}
+
+.gallery1 > .jokers {
+    flex: 1;
+    transition: all 1s;
+}
+
+.gallery1 > .jokers:nth-child(1) {
+    background:  url(cric6.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 40px;
+}
+
+.gallery1 > .jokers:nth-child(2) {
+    background: url(cric5.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 40px;
+}
+
+.gallery1 > .jokers:nth-child(3) {
+    background: url(cric4.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 40px;
+}
+.gallery1 > .jokers:nth-child(4) {
+    background: url(cric7.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 40px;
+}
+.gallery1 > .jokers:nth-child(5) {
+    background: url(cric8.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 40px;
+}
+.gallery1 > .jokers:nth-child(6) {
+    background: url(cric9.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 40px;
+}
+.gallery1 > .jokers:nth-child(7) {
+    background: url(cric10.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 40px;
+}
+.gallery1 > .jokers:hover {
+    flex: 6;
+}
+
+.slant-background {
+    position: relative;
+    background: linear-gradient(135deg, #0099ff 0%, #00ccff 100%);
+    height: 400px;
+    clip-path: polygon(0 0, 120% 0, 110% 90%, 0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card-hari-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+.card-hari {
+    background: white;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+}
+
+.card-hari img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-hari h3 {
+    margin: 0;
+    padding: 20px 0;
+    background-color: #f4f4f4;
+}
+
+.card-hari p {
+    padding: 0 20px 20px;
+}
+.hari-header{
+    background-color: #E63946;
+  }
+  
+  .main-hari{
+    height:30vh;
+    width:100%;  
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+  h1{
+    text-align:center;
+    text-transform: uppercase;
+    color: #F1FAEE; 
+    font-size: 4rem;
+  }
+  
+  .roller{
+    height: 4.125rem;
+    line-height: 4rem;
+    position: relative;
+    overflow: hidden; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: #1D3557;
+  }
+  
+  
+  #spare-time{
+    font-size: 1rem;
+    font-style: italic;
+    letter-spacing: 1rem;
+    margin-top: 0;
+    color: #A8DADC;
+    
+  }
+  
+  .roller #rolltext {
+    position: absolute;
+    top: 0;
+    animation: slide 5s infinite;  
+  }
+  
+  @keyframes slide {
+    0%{
+      top:0;
+    }
+    25%{
+      top: -4rem;    
+    }
+    50%{
+      top: -8rem;
+    }
+    72.5%{
+      top: -12.25rem;
+    }
+  }
+  
+  @media screen and (max-width: 600px){
+    .text-font-news{
+    text-align:center;
+    text-transform: uppercase;
+    color: #F1FAEE; 
+    font-size: 2.125rem;
+  }
+    
+    .roller{
+    height: 2.6rem; 
+    line-height: 2.125rem;  
+    }
+    
+    #spare-time {
+      font-size: 1rem;
+      letter-spacing: 0.1rem;
+    }
+    
+    .roller #rolltext {  
+    animation: slide-mob 5s infinite;  
+  }
+    
+    @keyframes slide-mob {
+    0%{
+      top:0;
+    }
+    25%{
+      top: -2.125rem;    
+    }
+    50%{
+      top: -4.25rem;
+    }
+    72.5%{
+      top: -6.375rem;
+    }
+  }
+  }
+  .text-font-news1{
+    color: blue;
+    font-family: Georgia, serif;
+    font-size: 60px;
+    position: relative;
+    left:90px;
+
+  }
+  .tata{
+   position: relative;
+   left: 710px;
+   width: 200px;
+   border-radius: 50%;
+   
+  }
+  .booking{
+    font-size:30px;
+    font-weight: 600;
+    color: #777777;
+    position: absolute;
+    left: 140px;
+  }
+  .booking1{
+    position: absolute;
+    left: 140px;
+    font-size:14px;
+    font-weight: 100;
+  }
+  .icons-last{
+    position: absolute;
+    left: 140px;
+    margin-top: 40px;
+    
+  }
+  

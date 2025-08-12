@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+
+  <style>
+    body{
+  min-height: 100vh;
+  width: 100%;
+  background: #c4cbca;
+}
+.form-group{
+    position: relative;
+  top: -10%;
+  left: 37%;
+  transform: translate(-25%,-25%);
+    max-width: 500px;
+    
+}
+.btn{
+    position: relative;
+  top: -10%;
+  left: 26%;
+}
+
+    /* Add custom styles here */
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 style=" color: rgb(76, 155, 7) !important;">Oscar Donate Form</h2>
+    <form id="registrationForm">
+        <br>
+        <br>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" class="form-control" id="age" placeholder="Enter your age">
+      </div>
+      <div class="form-group">
+        <label for="district">District:</label>
+        <input type="text" class="form-control" id="district" placeholder="Enter your district">
+      </div>
+      <div class="form-group">
+        <label for="state">State:</label>
+        <input type="text" class="form-control" id="state" placeholder="Enter your state">
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" class="form-control" id="mobile" placeholder="Enter your mobile number">
+      </div>
+      <div class="form-group">
+        <label for="payment">Payment Option:</label>
+        <select class="form-control" id="payment">
+          <option value="credit_card">Credit Card</option>
+          <option value="debit_card">Debit Card</option>
+          <option value="net_banking">Net Banking</option>
+          <option value="paypal">PayPal</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script>
+    // Add custom JavaScript here
+    document.getElementById("oscar donate form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      // You can add code to handle form submission here
+      // For example, you can collect form data and send it to a server using AJAX
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Django Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#4C6EF5", secondary: "#7048E8" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      }
+      .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -37px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #4C6EF5;
+      border: 4px solid white;
+      z-index: 1;
+      }
+      .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 20px;
+      bottom: -40px;
+      width: 2px;
+      background-color: #e5e7eb;
+      z-index: 0;
+      }
+      .timeline-item:last-child::after {
+      display: none;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+      }
+      .skill-bar {
+      position: relative;
+      height: 8px;
+      background-color: #e5e7eb;
+      border-radius: 4px;
+      overflow: hidden;
+      }
+      .skill-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background-color: #4C6EF5;
+      border-radius: 4px;
+      transition: width 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a
+            href="#home"
+            class="text-gray-800 hover:text-primary font-medium transition-colors"
+            >Home</a
+          >
+          <a
+            href="#projects"
+            class="text-gray-800 hover:text-primary font-medium transition-colors"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="text-gray-800 hover:text-primary font-medium transition-colors"
+            >Skills</a
+          >
+          <a
+            href="#experience"
+            class="text-gray-800 hover:text-primary font-medium transition-colors"
+            >Experience</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-800 hover:text-primary font-medium transition-colors"
+            >Contact</a
+          >
+        </div>
+        <button
+          id="mobile-menu-button"
+          class="md:hidden w-10 h-10 flex items-center justify-center text-gray-800"
+        >
+          <i class="ri-menu-line ri-lg"></i>
+        </button>
+      </div>
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white shadow-lg absolute w-full"
+      >
+        <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+          <a
+            href="#home"
+            class="text-gray-800 hover:text-primary font-medium transition-colors py-2"
+            >Home</a
+          >
+          <a
+            href="#projects"
+            class="text-gray-800 hover:text-primary font-medium transition-colors py-2"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="text-gray-800 hover:text-primary font-medium transition-colors py-2"
+            >Skills</a
+          >
+          <a
+            href="#experience"
+            class="text-gray-800 hover:text-primary font-medium transition-colors py-2"
+            >Experience</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-800 hover:text-primary font-medium transition-colors py-2"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100"
+    >
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+            >
+              Python Django <span class="text-primary">Developer</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+              Building robust, scalable web applications with Python and Django.
+              Specializing in RESTful APIs, database optimization, and clean,
+              maintainable code.
+            </p>
+            <div class="flex flex-wrap gap-4 mb-8">
+              <a
+                href="#projects"
+                class="group bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-button font-medium transition-all whitespace-nowrap flex items-center"
+              >
+                View Projects
+                <i
+                  class="ri-arrow-right-line ml-2 transition-transform group-hover:translate-x-1"
+                ></i>
+              </a>
+              <a
+                href="#"
+                class="group bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-button font-medium transition-all whitespace-nowrap flex items-center border-2 border-gray-200"
+              >
+                Download CV
+                <i
+                  class="ri-download-line ml-2 transition-transform group-hover:translate-y-0.5"
+                ></i>
+              </a>
+            </div>
+            <div class="flex items-center gap-6">
+              <div class="flex -space-x-3">
+                <img
+                  src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20young%20man%20in%20business%20attire%2C%20high%20quality%20portrait&width=100&height=100&seq=8&orientation=squarish"
+                  alt="Client"
+                  class="w-12 h-12 rounded-full border-2 border-white"
+                />
+                <img
+                  src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20woman%20in%20business%20attire%2C%20high%20quality%20portrait&width=100&height=100&seq=9&orientation=squarish"
+                  alt="Client"
+                  class="w-12 h-12 rounded-full border-2 border-white"
+                />
+                <img
+                  src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20mature%20man%20in%20business%20attire%2C%20high%20quality%20portrait&width=100&height=100&seq=10&orientation=squarish"
+                  alt="Client"
+                  class="w-12 h-12 rounded-full border-2 border-white"
+                />
+              </div>
+              <div>
+                <p class="text-gray-600 font-medium">Trusted by</p>
+                <p class="text-sm text-gray-500">50+ satisfied clients</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <img
+              src="https://readdy.ai/api/search-image?query=professional%20young%20software%20developer%20working%20on%20computer%2C%20modern%20office%20setting%2C%20focusing%20on%20coding%2C%20clean%20and%20minimal%20workspace%2C%20high-end%20professional%20photography&width=800&height=800&seq=11&orientation=squarish"
+              alt="Developer"
+              class="rounded-2xl shadow-2xl"
+            />
+            <div
+              class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg flex items-center gap-4"
+            >
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center"
+              >
+                <i class="ri-code-s-slash-line ri-lg text-primary"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">5+ Years</p>
+                <p class="text-sm text-gray-500">Experience</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <div
+            class="inline-flex items-center justify-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4"
+          >
+            My Expertise
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Skills & Technologies
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Specialized in Python and Django with extensive experience in
+            building web applications and RESTful APIs.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- Backend Development -->
+          <div
+            class="bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-2xl p-8 hover:shadow-xl transition-all"
+          >
+            <div class="flex items-center gap-4 mb-8">
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl"
+              >
+                <i class="ri-code-s-slash-line ri-2x text-primary"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold">Backend</h3>
+                <p class="text-gray-500">Core Technologies</p>
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                    alt="Python"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">Python</span>
+                    <span>95%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 95%"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+                    alt="Django"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">Django</span>
+                    <span>90%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"
+                    alt="FastAPI"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">FastAPI</span>
+                    <span>85%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"
+                    alt="Flask"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">Flask</span>
+                    <span>80%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Database & Tools -->
+          <div
+            class="bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-2xl p-8 hover:shadow-xl transition-all"
+          >
+            <div class="flex items-center gap-4 mb-8">
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl"
+              >
+                <i class="ri-database-2-line ri-2x text-primary"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold">Database & Tools</h3>
+                <p class="text-gray-500">Storage & DevOps</p>
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                    alt="PostgreSQL"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">PostgreSQL</span>
+                    <span>90%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+                    alt="Redis"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">Redis</span>
+                    <span>85%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                    alt="Docker"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">Docker</span>
+                    <span>85%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                    alt="MongoDB"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">MongoDB</span>
+                    <span>75%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 75%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Frontend & APIs -->
+          <div
+            class="bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-2xl p-8 hover:shadow-xl transition-all"
+          >
+            <div class="flex items-center gap-4 mb-8">
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl"
+              >
+                <i class="ri-layout-line ri-2x text-primary"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold">Frontend & APIs</h3>
+                <p class="text-gray-500">Client & Integration</p>
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="JavaScript"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">JavaScript</span>
+                    <span>85%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                    alt="React"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">React</span>
+                    <span>80%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg"
+                    alt="GraphQL"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">GraphQL</span>
+                    <span>75%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 75%"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg"
+                    alt="Tailwind CSS"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">Tailwind CSS</span>
+                    <span>90%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Projects Section -->
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Project Showcase
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            A collection of my most significant projects built with Python,
+            Django, and other technologies.
+          </p>
+        </div>
+        <div class="mb-8 flex justify-center">
+          <div class="inline-flex bg-gray-100 rounded-full p-1">
+            <button
+              class="filter-btn active px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-primary text-white"
+              data-filter="all"
+            >
+              All Projects
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap"
+              data-filter="django"
+            >
+              Django
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap"
+              data-filter="api"
+            >
+              API
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap"
+              data-filter="fullstack"
+            >
+              Full Stack
+            </button>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            data-category="django fullstack"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=e-commerce%20website%20dashboard%20with%20product%20listings%2C%20modern%20UI%20design%2C%20professional%20looking%20interface%20with%20clean%20layout%2C%20showing%20products%20in%20a%20grid%20layout%20with%20Django%20admin%20panel%20elements&width=600&height=400&seq=2&orientation=landscape"
+                alt="E-commerce Platform"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">E-commerce Platform</h3>
+              <p class="text-gray-600 mb-4">
+                A full-featured e-commerce platform with product management,
+                shopping cart, payment integration, and order tracking.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Django</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >PostgreSQL</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Stripe API</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="flex space-x-3">
+                <a
+                  href="#"
+                  class="text-primary hover:text-primary/80 font-medium flex items-center"
+                >
+                  <i class="ri-link mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="#"
+                  class="text-gray-700 hover:text-gray-900 font-medium flex items-center"
+                >
+                  <i class="ri-github-fill mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            data-category="api django"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=REST%20API%20documentation%20interface%2C%20showing%20endpoints%20and%20data%20structures%2C%20professional%20developer%20portal%20with%20code%20examples%20and%20authentication%20sections%2C%20clean%20modern%20design&width=600&height=400&seq=3&orientation=landscape"
+                alt="RESTful API Service"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">RESTful API Service</h3>
+              <p class="text-gray-600 mb-4">
+                A comprehensive API service for a content management system with
+                authentication, rate limiting, and documentation.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Django REST Framework</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >JWT Auth</span
+                >
+                <span
+                  class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Redis</span
+                >
+                <span
+                  class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Swagger</span
+                >
+              </div>
+              <div class="flex space-x-3">
+                <a
+                  href="#"
+                  class="text-primary hover:text-primary/80 font-medium flex items-center"
+                >
+                  <i class="ri-link mr-1"></i> Documentation
+                </a>
+                <a
+                  href="#"
+                  class="text-gray-700 hover:text-gray-900 font-medium flex items-center"
+                >
+                  <i class="ri-github-fill mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            data-category="fullstack django"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=project%20management%20dashboard%20with%20task%20boards%2C%20charts%2C%20and%20team%20collaboration%20features%2C%20modern%20UI%20with%20clean%20design%2C%20showing%20project%20analytics%20and%20kanban%20board&width=600&height=400&seq=4&orientation=landscape"
+                alt="Project Management Tool"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">
+                Project Management Tool
+              </h3>
+              <p class="text-gray-600 mb-4">
+                A collaborative project management application with task
+                tracking, team management, and real-time notifications.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Django</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Channels</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >React</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >PostgreSQL</span
+                >
+              </div>
+              <div class="flex space-x-3">
+                <a
+                  href="#"
+                  class="text-primary hover:text-primary/80 font-medium flex items-center"
+                >
+                  <i class="ri-link mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="#"
+                  class="text-gray-700 hover:text-gray-900 font-medium flex items-center"
+                >
+                  <i class="ri-github-fill mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 4 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            data-category="api django"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=machine%20learning%20dashboard%20showing%20data%20visualization%2C%20prediction%20models%2C%20and%20analytics%20charts%2C%20professional%20interface%20with%20clean%20design%20and%20data%20insights&width=600&height=400&seq=5&orientation=landscape"
+                alt="Data Analysis Platform"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Data Analysis Platform</h3>
+              <p class="text-gray-600 mb-4">
+                A data analysis platform with visualization tools, report
+                generation, and machine learning integration.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Django</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Pandas</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Matplotlib</span
+                >
+                <span
+                  class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Scikit-learn</span
+                >
+              </div>
+              <div class="flex space-x-3">
+                <a
+                  href="#"
+                  class="text-primary hover:text-primary/80 font-medium flex items-center"
+                >
+                  <i class="ri-link mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="#"
+                  class="text-gray-700 hover:text-gray-900 font-medium flex items-center"
+                >
+                  <i class="ri-github-fill mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 5 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            data-category="fullstack"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=social%20media%20platform%20interface%20showing%20user%20profiles%2C%20posts%2C%20and%20interaction%20features%2C%20modern%20clean%20design%20with%20messaging%20and%20notification%20elements&width=600&height=400&seq=6&orientation=landscape"
+                alt="Social Network"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">
+                Social Network Platform
+              </h3>
+              <p class="text-gray-600 mb-4">
+                A social networking platform with user profiles, posts,
+                comments, real-time chat, and notifications.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Django</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >WebSockets</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Vue.js</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >MongoDB</span
+                >
+              </div>
+              <div class="flex space-x-3">
+                <a
+                  href="#"
+                  class="text-primary hover:text-primary/80 font-medium flex items-center"
+                >
+                  <i class="ri-link mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="#"
+                  class="text-gray-700 hover:text-gray-900 font-medium flex items-center"
+                >
+                  <i class="ri-github-fill mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 6 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            data-category="django api"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=booking%20system%20interface%20showing%20calendar%2C%20reservation%20forms%2C%20and%20availability%20management%2C%20professional%20clean%20design%20with%20payment%20processing%20elements&width=600&height=400&seq=7&orientation=landscape"
+                alt="Booking System"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">
+                Booking & Reservation System
+              </h3>
+              <p class="text-gray-600 mb-4">
+                A comprehensive booking system for services with calendar
+                integration, payment processing, and automated reminders.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Django</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Celery</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Google Calendar API</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Stripe</span
+                >
+              </div>
+              <div class="flex space-x-3">
+                <a
+                  href="#"
+                  class="text-primary hover:text-primary/80 font-medium flex items-center"
+                >
+                  <i class="ri-link mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="#"
+                  class="text-gray-700 hover:text-gray-900 font-medium flex items-center"
+                >
+                  <i class="ri-github-fill mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Professional Experience
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            My journey as a Python Django developer across various roles and
+            projects.
+          </p>
+        </div>
+        <div class="max-w-3xl mx-auto relative pl-10">
+          <!-- Timeline Line -->
+          <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+          <!-- Experience 1 -->
+          <div class="timeline-item relative pl-8">
+            <div
+              class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
+            >
+              <div class="flex flex-wrap justify-between items-start mb-4">
+                <div>
+                  <h3 class="text-xl font-semibold">
+                    Senior Backend Developer
+                  </h3>
+                  <p class="text-primary font-medium">TechNova Solutions</p>
+                </div>
+                <p class="text-gray-500 text-sm">Jan 2023 - Present</p>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Leading the backend development team for enterprise-level
+                applications using Django and Python. Responsible for
+                architecture design, API development, and performance
+                optimization.
+              </p>
+              <ul class="list-disc list-inside text-gray-600 space-y-2">
+                <li>
+                  Designed and implemented scalable microservices architecture
+                  reducing server load by 40%
+                </li>
+                <li>
+                  Developed RESTful APIs serving over 1M requests daily with
+                  99.9% uptime
+                </li>
+                <li>
+                  Optimized database queries resulting in 60% faster response
+                  times
+                </li>
+                <li>
+                  Mentored junior developers and established coding standards
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Get In Touch
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Interested in working together? Feel free to contact me for any
+            project or collaboration.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <!-- Contact Info -->
+          <div class="bg-white rounded-lg shadow-lg p-8">
+            <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4"
+                >
+                  <i class="ri-mail-line ri-lg text-primary"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 mb-1">Email</p>
+                  <p class="font-medium">developer@example.com</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4"
+                >
+                  <i class="ri-map-pin-line ri-lg text-primary"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 mb-1">Location</p>
+                  <p class="font-medium">San Francisco, California</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4"
+                >
+                  <i class="ri-time-line ri-lg text-primary"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 mb-1">Availability</p>
+                  <p class="font-medium">Available for freelance projects</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-8">
+              <h4 class="text-lg font-semibold mb-4">Connect With Me</h4>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                >
+                  <i class="ri-github-fill ri-lg text-gray-700"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                >
+                  <i class="ri-linkedin-fill ri-lg text-gray-700"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                >
+                  <i class="ri-twitter-fill ri-lg text-gray-700"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                >
+                  <i class="ri-stack-overflow-line ri-lg text-gray-700"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Contact Form -->
+          <div class="bg-white rounded-lg shadow-lg p-8">
+            <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
+            <form id="contact-form">
+              <div class="mb-6">
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Your Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Your Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors"
+                  placeholder="john@example.com"
+                  required
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="subject"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors"
+                  placeholder="Project Inquiry"
+                  required
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  rows="5"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors resize-none"
+                  placeholder="Your message here..."
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-button transition-colors whitespace-nowrap"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <a href="#" class="text-2xl font-['Pacifico'] text-white">logo</a>
+            <p class="mt-2 text-gray-400">Python Django Developer</p>
+          </div>
+          <div class="flex flex-wrap justify-center gap-6 mb-6 md:mb-0">
+            <a
+              href="#home"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Home</a
+            >
+            <a
+              href="#projects"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Projects</a
+            >
+            <a
+              href="#skills"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Skills</a
+            >
+            <a
+              href="#experience"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Experience</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Contact</a
+            >
+          </div>
+          <div class="flex space-x-4">
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-full transition-colors"
+            >
+              <i class="ri-github-fill ri-lg"></i>
+            </a>
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-full transition-colors"
+            >
+              <i class="ri-linkedin-fill ri-lg"></i>
+            </a>
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-full transition-colors"
+            >
+              <i class="ri-twitter-fill ri-lg"></i>
+            </a>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2025 Python Django Developer. All rights reserved.
+          </p>
+          <p class="text-gray-400 text-sm">Last updated: June 14, 2025</p>
+        </div>
+      </div>
+    </footer>
+    <!-- Back to top button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 w-12 h-12 bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300"
+    >
+      <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+    <!-- Scripts -->
+    <script id="navigation-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+          // Change icon based on menu state
+          const icon = mobileMenuButton.querySelector("i");
+          if (mobileMenu.classList.contains("hidden")) {
+            icon.className = "ri-menu-line ri-lg";
+          } else {
+            icon.className = "ri-close-line ri-lg";
+          }
+        });
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+            mobileMenuButton.querySelector("i").className = "ri-menu-line ri-lg";
+          });
+        });
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80, // Adjust for header height
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+    <script id="back-to-top-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const backToTopButton = document.getElementById("back-to-top");
+        // Show/hide back to top button based on scroll position
+        window.addEventListener("scroll", function () {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.remove("opacity-0", "invisible");
+            backToTopButton.classList.add("opacity-100", "visible");
+          } else {
+            backToTopButton.classList.remove("opacity-100", "visible");
+            backToTopButton.classList.add("opacity-0", "invisible");
+          }
+        });
+        // Scroll to top when button is clicked
+        backToTopButton.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+    <script id="project-filter-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const projectCards = document.querySelectorAll(".project-card");
+        // Filter projects based on category
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const filter = this.getAttribute("data-filter");
+            // Update active button
+            filterButtons.forEach((btn) => {
+              btn.classList.remove("bg-primary", "text-white");
+              btn.classList.add("text-gray-700");
+            });
+            this.classList.add("bg-primary", "text-white");
+            this.classList.remove("text-gray-700");
+            // Filter projects
+            projectCards.forEach((card) => {
+              const categories = card.getAttribute("data-category").split(" ");
+              if (filter === "all" || categories.includes(filter)) {
+                card.style.display = "block";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+    </script>
+    <script id="contact-form-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contact-form");
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          // Get form values
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const subject = document.getElementById("subject").value;
+          const message = document.getElementById("message").value;
+          // Normally you would send this data to a server
+          // For demo purposes, we'll just show an alert
+          alert(`Thank you for your message, ${name}! I'll get back to you soon.`);
+          // Reset form
+          contactForm.reset();
+        });
+      });
+    </script>
+    <script id="skill-animation-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Animate skill bars when they come into view
+        const skillBars = document.querySelectorAll(".skill-progress");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.width =
+                  entry.target.parentElement.previousElementSibling.querySelector(
+                    "span:last-child",
+                  ).textContent;
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 },
+        );
+        skillBars.forEach((bar) => {
+          bar.style.width = "0%";
+          observer.observe(bar);
+        });
+      });
+    </script>
+  </body>
+</html>

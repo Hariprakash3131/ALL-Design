@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<style>
+  .profile{
+    background-color: rgba(255, 255, 255, 0.099);
+  }
+  .bordered{
+    background-color: rgba(255, 255, 255, 0.099);
+    margin:5px;
+  }
+  .bordered:hover{
+    background-color: #149ddd;
+  }
+  .menu-list{
+    line-height: 60px;
+    color: rgba(255, 255, 255, 0.595);
+  }
+  .menu-list a{
+    color: rgba(255, 255, 255, 0.595);
+  }
+  .menu-list li:hover i{
+    color: rgb(20, 157, 221);
+  }
+  .menu-list li:hover a{
+    color: white;
+  }
+  .offcanvas-body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 9;
+  }
+  .bio-list{
+    line-height: 40px;
+  }
+  .bio-list i{
+    color: rgb(20, 157, 221);
+  }
+  .font i{
+    color: rgb(20, 157, 221);
+  }
+  .font p{
+    color: rgba(0, 0, 0, 0.496);
+  }
+  .skills{
+    background-color: rgb(239, 249, 249);
+  }
+  .css{
+    width: 90%;
+  }
+  .php{
+    width: 80%;
+  }
+  .photoshop{
+    width: 60%;
+  }
+  .icon i{
+    border: 1px solid #149ddd;
+    padding: 15px 10px;
+    font-size: 20px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #149ddd;
+    color: white;
+    transition: all 0.7s;
+  }
+  .service:hover .icon i{
+    background-color: transparent;
+    color: #149ddd;
+  }
+  .service:hover .title{
+    color: #149ddd;
+  }
+  .relative{
+    padding-top: 120px;
+    text-align: center;
+  }
+  .tooltip-text{
+    padding-top: 10px;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
+    background-color: white;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0px 1px 20px rgb(192, 191, 191);
+  }
+  .tooltip-text::after{
+    content: "";
+    position: absolute;
+    top: 97px;
+    left: 45%;
+    border: 15px solid;
+    border-color: white transparent transparent transparent;
+}
+.tooltip-text i{
+  color: #149ddd;
+}
+.msg textarea{
+  height: 180px;
+}
+.contact{
+  box-shadow: 0px 1px 20px rgb(202, 201, 201);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tooltip-text {
+    width: 280px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .banner {
+    height: 300px;
+    object-fit: cover;
+  }
+  .display-4 {
+    font-size: 2rem;
+  }
+  .h4 {
+    font-size: 1.2rem;
+  }
+  .icon i {
+    width: 40px;
+    padding: 12px 8px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .tooltip-text {
+    width: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .banner {
+    height: 250px;
+  }
+  .display-4 {
+    font-size: 1.5rem;
+  }
+  .h4 {
+    font-size: 1rem;
+  }
+  .icon i {
+    width: 35px;
+    padding: 10px 6px;
+    font-size: 14px;
+  }
+  .profile {
+    width: 80px !important;
+  }
+}
+</style>
+<body>
+  <div class="row g-0">
+  <nav class="navbar col-lg-2 col-md-3 col-12 bg-dark text-white">
+  <button class="btn btn-primary d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive"><i class="fa-solid fa-bars"></i></button>
+<!--<div class="alert alert-info d-none d-lg-block">Resize your browser to show the responsive offcanvas toggle.</div>-->
+<div class="offcanvas-lg offcanvas-start" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Responsive offcanvas</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column bg-dark">
+    <img src="Boots4image/men small.jpg" alt="men" width="100px" class="profile rounded-circle p-2 mx-auto my-3">
+    <h4 class="text-center">John Doe</h4>
+    <div class="text-center my-2"><span class="bordered rounded-circle p-2"><i class="fa-brands fa-x-twitter"></i></span> <span class="bordered rounded-circle p-2"><i class="fa-brands fa-facebook"></i></span> <span class="bordered rounded-circle p-2"><i class="fa-brands fa-instagram"></i></span> <span class="bordered rounded-circle p-2"><i class="fa-brands fa-linkedin"></i></span></div>
+    <ul class="menu-list list-unstyled ms-4">
+      <li><i class="fa-regular fa-house"></i> <a href="" class="text-decoration-none">Home</a></li>
+      <li><i class="fa-regular fa-user"></i> <a href="" class="text-decoration-none">About</a></li>
+      <li><i class="fa-regular fa-file"></i> <a href="" class="text-decoration-none">Resume</a></li>
+      <li><i class="fa-regular fa-images"></i> <a href="" class="text-decoration-none">Portfolio</a></li>
+      <li><i class="fa-regular fa-headphones"></i> <a href="" class="text-decoration-none">Services</a></li>
+      <li><i class="fa-regular fa-rectangle-list"></i> <a href="" class="text-decoration-none">dropdown</a></li>
+      <li><i class="fa-regular fa-envelope"></i> <a href="" class="text-decoration-none">Contact</a></li>
+    </ul>
+  </div>
+</div>
+</nav>
+<div class="col-lg-10 col-md-9 col-12">
+  <div class="position-relative">
+  <img src="Boots4image/men (2).jpg" alt="men" class="banner d-block w-100 mb-5">
+  <div class="position-absolute top-50 start-0 m-3 text-white">
+    <h1 class="display-4 fw-bold">John Doe</h1>
+    <h4 class="fw-semibold">I'm Developer</h4>
+  </div>
+  </div>
+  <section class="about p-1">
+  <h2 class="fw-bold">About</h2>
+  <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+  <div class="row mt-5 g-3">
+    <img src="Boots4image/men small.jpg" width="400px" class="col-lg-4 col-md-6 col-12">
+    <div class="col-lg-8 col-md-6 col-12">
+      <h4 class="fw-semibold mb-4">UI/UX Designer & Web Developer.</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="row mt-4 mb-4 g-3">
+      <ul class="bio-list col-lg-6 col-md-12 col-12 list-unstyled">
+        <li><i class="fa-solid fa-chevron-right"></i> <b>Birthday:</b> 1 May 1995</li>
+        <li><i class="fa-solid fa-chevron-right"></i> <b>Website:</b> www.example.com</li>
+        <li><i class="fa-solid fa-chevron-right"></i>  <b>Phone:</b> +123 456 7890</li>
+        <li><i class="fa-solid fa-chevron-right"></i> <b>City:</b> New York, USA</li>
+      </ul>
+      <ul class="bio-list col-lg-6 col-md-12 col-12 list-unstyled">
+        <li><i class="fa-solid fa-chevron-right"></i> <b>Age:</b> 30</li>
+        <li><i class="fa-solid fa-chevron-right"></i> <b>Degree:</b> Master</li>
+        <li><i class="fa-solid fa-chevron-right"></i> <b>Email:</b> email@example.com</li>
+        <li><i class="fa-solid fa-chevron-right"></i> <b>Freelance:</b> Available</li>
+      </ul>
+      </div>
+      <p>Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis. Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque.</p>
+    </div>
+  </div>
+</section>
+<div class="font row m-5 g-3">
+  <div class="col-lg-3 col-md-6 col-12"><h1 class="fw-bold"><i class="fa-regular fa-face-smile"></i> 232</h1>
+    <p class="mx-5"><b>Happy Clients</b> consequuntur quae</p>
+  </div>
+  <div class="col-lg-3 col-md-6 col-12"><h1 class="fw-bold"><i class="fa-regular fa-file-image"></i> 521</h1>
+    <p class="mx-5"><b>Projects</b> adipisci atque cum quia aut</p>
+  </div>
+  <div class="col-lg-3 col-md-6 col-12"><h1 class="fw-bold"><i class="fa-solid fa-headset"></i> 1534</h1>
+  <p class="mx-5"><b>Hours Of Support</b> aut commodi quaerat</p>
+  </div>
+  <div class="col-lg-3 col-md-6 col-12"><h1 class="fw-bold"><i class="fa-solid fa-user-group"></i> 32</h1>
+  <p class="mx-5"><b>Hard Workers</b> rerum asperiores dolor</p>
+  </div>
+</div>
+<section class="skills p-1 py-5">
+  <h2 class="fw-bold">Skills</h2>
+  <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+  <div class="row mt-5 g-3">
+    <div class="col-lg-6 col-md-12 col-12">
+      <span>HTML</span>
+  <div class="progress mb-4" role="progressbar" aria-label="Basic example 10px height" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar w-100">100%</div>
+</div>
+<span>CSS</span>
+<div class="progress mb-4" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+  <div class="css progress-bar">90%</div>
+</div>
+<span>JAVASCRIPT</span>
+<div class="progress mb-4" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar w-75">75%</div>
+</div>
+</div>
+<div class="col-lg-6 col-md-12 col-12">
+  <span>PHP</span>
+  <div class="progress mb-4" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+  <div class="php progress-bar">80%</div>
+</div>
+<span>WORDPRESS/CMS</span>
+<div class="progress mb-4" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+  <div class="css progress-bar">90%</div>
+</div>
+<span>PHOTOSHOP</span>
+<div class="progress mb-4" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+  <div class="photoshop progress-bar">60%</div>
+</div>
+</div>
+</div>
+</section>
+<section class="my-5">
+  <h2 class="fw-bold">Resume</h2>
+  <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+<div class="row mt-5 g-3">
+  <div class="col-lg-6 col-md-12 col-12">
+    <h3 class="fw-semibold mb-3">Sumary</h3>
+    <div class="border-start border-primary ps-2">
+      <h5 class="text-secondary">BRANDON JOHNSON</h5>
+      <p>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</p>
+    <ul class="mb-4">
+      <li class="mb-3">Portland par 127,Orlando, FL</li>
+      <li class="mb-3">(123) 456-7891</li>
+      <li>alice.barkley@example.com</li>
+    </ul>
+    </div>
+    <h3 class="fw-semibold mb-3">Education</h3>
+    <div class="border-start border-primary ps-2">
+      <h5 class="text-secondary mb-3">MASTER OF FINE ARTS & GRAPHIC DESIGN</h5>
+      <span class="fw-semibold">2015 - 2016</span>
+      <p class="mt-3 fst-italic">Rochester Institute of Technology, Rochester, NY</p>
+      <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
+      <h5 class="text-secondary mb-3">BACHELOR OF FINE ARTS & GRAPHIC DESIGN</h5>
+      <span class="fw-semibold">2010 - 2014</span>
+      <p class="mt-3 fst-italic">Rochester Institute of Technology, Rochester, NY</p>
+      <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12 col-12">
+    <h3 class="fw-semibold mb-3">Professional Experience</h3>
+    <div class="border-start border-primary ps-2">
+      <h5 class="text-secondary mb-3">SENIOR GRAPHIC DESIGN SPECIALIST</h5>
+      <span class="fw-semibold">2019 - Present</span>
+      <p class="mt-3 fst-italic">Experion, New York, NY</p>
+      <ul class="mb-5">
+        <li class="mb-3">Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
+        <li class="mb-3">Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project.</li>
+        <li class="mb-3">Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
+        <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
+      </ul>
+      <h5 class="text-secondary mb-3">GRAPHIC DESIGN SPECIALIST</h5>
+      <span class="fw-semibold">2017 - 2018</span>
+      <p class="mt-3 fst-italic">Stepping Stone Advertising, New York, NY</p>
+      <ul>
+        <li class="mb-3">Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
+        <li class="mb-3">Managed up to 5 projects or tasks at a given time while under pressure</li>
+        <li class="mb-3">Recommended and consulted with clients on the most appropriate graphic design</li>
+        <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
+      </ul>
+    </div>
+</div>
+</div>
+</section>
+<section class="skills py-5">
+  <h2 class="fw-bold">Portfolio</h2>
+  <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+  <div class="text-center mb-4 mt-5">
+    <span class="mx-2">ALL</span>
+    <span class="mx-2">APP</span>
+    <span class="mx-2">PRODUCT</span>
+    <span class="mx-2">BRANDING</span>
+    <span class="mx-2">BOOKS</span>
+  </div>
+<!--1st row-->
+  <div class="row mb-4 g-3">
+  <div class="col-lg-4 col-md-6 col-12">
+    <img src="https://images.unsplash.com/photo-1529653762956-b0a27278529c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1vYmlsZXxlbnwwfHwwfHx8MA%3D%3D" class="img-fluid w-100">
+  </div>
+  <div class="col-lg-4 col-md-6 col-12">
+    <img src="https://images.unsplash.com/photo-1557438159-51eec7a6c9e8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHNtYXJ0JTIwd2F0Y2h8ZW58MHx8MHx8fDA%3D" class="img-fluid w-100">
+  </div>
+  <div class="col-lg-4 col-md-6 col-12">
+    <img src="https://images.unsplash.com/photo-1633793565780-deeea84f167b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D" class="img-fluid w-100">
+  </div>
+</div>
+<!--2nd row-->
+<div class="row mb-4 g-3">
+  <div class="col-lg-4 col-md-6 col-12">
+    <img src="https://images.unsplash.com/photo-1521123845560-14093637aa7d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM1fHxib29rfGVufDB8fDB8fHww" class="img-fluid w-100">
+  </div>
+  <div class="col-lg-4 col-md-6 col-12">
+    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW9iaWxlJTIwYXBwfGVufDB8fDB8fHww" class="img-fluid w-100">
+  </div>
+  <div class="col-lg-4 col-md-6 col-12">
+    <img src="https://images.unsplash.com/photo-1581591524425-c7e0978865fc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGNhbWVyYXxlbnwwfHwwfHx8MA%3D%3D" class="img-fluid w-100">
+  </div>
+</div>
+<!--3rd row-->
+<div class="row mb-4 g-3">
+  <div class="col-lg-4 col-md-6 col-12">
+    <img src="https://images.unsplash.com/photo-1739980213756-753aea153bb8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5fHx8ZW58MHx8fHx8" class="img-fluid w-100">
+  </div>
+  <div class="col-lg-4 col-md-6 col-12">
+    <img src="https://images.unsplash.com/photo-1676276550341-00e94a953058?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI3fHx8ZW58MHx8fHx8" class="img-fluid w-100">
+  </div>
+  <div class="col-lg-4 col-md-6 col-12">
+    <img src="https://images.unsplash.com/photo-1609851451108-e937620f1210?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid w-100">
+  </div>
+</div>
+<!--4th row-->
+<div class="row mb-4 g-3">
+  <div class="col-lg-4 col-md-6 col-12">
+    <img src="https://plus.unsplash.com/premium_photo-1668009965634-1616bf49ecde?q=80&w=1189&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid w-100">
+  </div>
+  <div class="col-lg-4 col-md-6 col-12">
+    <img src="https://images.unsplash.com/photo-1598994408715-487bf6470d7e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D" class="img-fluid w-100">
+  </div>
+  <div class="col-lg-4 col-md-6 col-12">
+    <img src="https://images.unsplash.com/photo-1619872553215-8ac017d003f4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid w-100">
+  </div>
+</div>
+</section>
+<section class="my-5">
+  <h2 class="fw-bold">Services</h2>
+  <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+  <!--1st row-->
+  <div class="row mt-5 g-3">
+    <div class="col-lg-4 col-md-6 col-12">
+      <div class="service row g-2">
+      <span class="icon col-2"><i class="fa-solid fa-briefcase"></i></span>
+      <div class="col">
+      <h5 class="title fw-semibold">Lorem Ipsum</h5>
+      <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+      </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-12">
+      <div class="service row g-2">
+      <span class="icon col-2"><i class="fa-solid fa-list-check"></i></span>
+      <div class="col">
+      <h5 class="title fw-semibold">Dolor Sitema</h5>
+      <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+      </div>
+      </div>
+   </div>
+   <div class="col-lg-4 col-md-6 col-12">
+    <div class="service row g-2">
+    <span class="icon col-2"><i class="fa-solid fa-chart-simple"></i></span>
+    <div class="col">
+    <h5 class="title fw-semibold">Sed ut perspiciatis</h5>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+    </div>
+    </div>
+   </div>
+  </div>
+  <!--2nd row-->
+  <div class="row mt-4 g-3">
+    <div class="col-lg-4 col-md-6 col-12">
+      <div class="service row g-2">
+        <span class="icon col-2"><i class="fa-solid fa-binoculars"></i></span>
+        <div class="col">
+      <h5 class="title fw-semibold">Magni Dolores</h5>
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-12">
+      <div class="service row g-2">
+        <span class="icon col-2"><i class="fa-solid fa-earth-americas"></i></span>
+      <div class="col">
+      <h5 class="title fw-semibold">Nemo Enim</h5>
+      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+      </div>
+      </div>
+  </div>
+  <div class="col-lg-4 col-md-6 col-12">
+    <div class="service row g-2">
+      <span class="icon col-2"><i class="fa-solid fa-calendar-days"></i></span>
+    <div class="col">
+    <h5 class="title fw-semibold">Eiusmod Tempor</h5>
+    <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+    </div>
+    </div>
+  </div>
+  </div>
+</section>
+<section class="skills py-5">
+  <h2 class="fw-bold">Testimonials</h2>
+  <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+  <div class="row my-5 g-3">
+  <div class="relative col-lg-4 col-md-6 col-12 position-relative">
+    <img class="rounded-circle" src="Boots4image/business women.jpg" width="100px">
+    <h5 class="fw-bold">Sara Wilsson</h5>
+    <span class="text-secondary">Designer</span>
+    <div class="tooltip-text">
+      <p><i class="fa-solid fa-quote-left"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis et corrupti doloremque, aut natus nam. <i class="fa-solid fa-quote-right"></i></p>
+    </div>
+  </div>
+  <div class="relative col-lg-4 col-md-6 col-12 position-relative">
+    <img class="rounded-circle" src="Boots4image/business men.jpg" width="100px">
+    <h5 class="fw-bold">John Doe</h5>
+    <span class="text-secondary">Ceo & Founder</span>
+    <div class="tooltip-text">
+      <p><i class="fa-solid fa-quote-left"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam magnam eaque molestiae ullam rem ad? <i class="fa-solid fa-quote-right"></i></p>
+    </div>
+  </div>
+  <div class="relative col-lg-4 col-md-6 col-12 position-relative">
+    <img class="rounded-circle" src="Boots4image/business men2.jpg" width="100px">
+    <h5 class="fw-bold">John Petter</h5>
+    <span class="text-secondary">Freelancer</span>
+    <div class="tooltip-text">
+    <p><i class="fa-solid fa-quote-left"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, minima inventore similique quod ea quas? <i class="fa-solid fa-quote-right"></i></p>
+    </div>
+  </div>
+  </div>
+</section>
+<section class="my-5">
+  <h2 class="fw-bold">Contact</h2>
+  <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+  <div class="row mt-5 g-4">
+    <div class="col-lg-6 col-md-12 col-12">
+      <div class="contact border p-4 h-100">
+        <div class="row g-3 mb-4">
+          <div class="col-2">
+            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+          </div>
+          <div class="col-10">
+            <h5 class="fw-bold">Address</h5>
+            <p class="mb-0">A108 Adam Street, New York, NY 535022</p>
+          </div>
+        </div>
+        <div class="row g-3 mb-4">
+          <div class="col-2">
+            <span class="icon"><i class="fa-solid fa-phone"></i></span>
+          </div>
+          <div class="col-10">
+            <h5 class="fw-bold">Call Us</h5>
+            <p class="mb-0">+1 5586 55489 55</p>
+          </div>
+        </div>
+        <div class="row g-3 mb-4">
+          <div class="col-2">
+            <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+          </div>
+          <div class="col-10">
+            <h5 class="fw-bold">Email Us</h5>
+            <p class="mb-0">info@Portfolio.com</p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <img src="https://miro.medium.com/1*8ZhgsyCNQRDaKEB7Rk_Udw.jpeg" class="img-fluid w-100 rounded">
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12 col-12">
+      <div class="contact border p-4 h-100">
+        <form action="demo.html">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label for="name" class="fw-semibold">Your Name</label>
+              <input type="text" id="name" class="form-control mt-2" placeholder="Enter your name">
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="email" class="fw-semibold">Your Email</label>
+              <input type="email" id="email" class="form-control mt-2" placeholder="Enter your email">
+            </div>
+          </div>
+          <div class="mt-3">
+            <label for="subject" class="fw-semibold">Subject</label>
+            <input type="text" id="subject" class="form-control mt-2" placeholder="Enter subject">
+          </div>
+          <div class="mt-3">
+            <label for="message" class="fw-semibold">Message</label>
+            <textarea name="msg" id="message" class="form-control mt-2" rows="4" placeholder="Enter your message"></textarea>
+          </div>
+          <div class="text-center mt-4">
+            <button type="button" class="btn btn-primary btn-lg px-4">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="skills py-5 text-center">
+  <p><b>&copy</b> Copyright 2025. All Rights Reserved.</p>
+</footer>
+</div>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>

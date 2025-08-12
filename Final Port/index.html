@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Django Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#4C6EF5", secondary: "#7048E8" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      }
+      .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -37px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #4C6EF5;
+      border: 4px solid white;
+      z-index: 1;
+      }
+      .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 20px;
+      bottom: -40px;
+      width: 2px;
+      background-color: #e5e7eb;
+      z-index: 0;
+      }
+      .timeline-item:last-child::after {
+      display: none;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+      }
+      .skill-bar {
+      position: relative;
+      height: 8px;
+      background-color: #e5e7eb;
+      border-radius: 4px;
+      overflow: hidden;
+      }
+      .skill-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background-color: #4C6EF5;
+      border-radius: 4px;
+      transition: width 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-['Pacifico'] text-primary">Hariprakash</a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a
+            href="#home"
+            class="text-gray-800 hover:text-primary font-medium transition-colors"
+            >Home</a
+          >
+          <a
+            href="#projects"
+            class="text-gray-800 hover:text-primary font-medium transition-colors"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="text-gray-800 hover:text-primary font-medium transition-colors"
+            >Skills</a
+          >
+          <a
+            href="#experience"
+            class="text-gray-800 hover:text-primary font-medium transition-colors"
+            >Experience</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-800 hover:text-primary font-medium transition-colors"
+            >Contact</a
+          >
+        </div>
+        <button
+          id="mobile-menu-button"
+          class="md:hidden w-10 h-10 flex items-center justify-center text-gray-800"
+        >
+          <i class="ri-menu-line ri-lg"></i>
+        </button>
+      </div>
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white shadow-lg absolute w-full"
+      >
+        <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+          <a
+            href="#home"
+            class="text-gray-800 hover:text-primary font-medium transition-colors py-2"
+            >Home</a
+          >
+          <a
+            href="#projects"
+            class="text-gray-800 hover:text-primary font-medium transition-colors py-2"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="text-gray-800 hover:text-primary font-medium transition-colors py-2"
+            >Skills</a
+          >
+          <a
+            href="#experience"
+            class="text-gray-800 hover:text-primary font-medium transition-colors py-2"
+            >Experience</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-800 hover:text-primary font-medium transition-colors py-2"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100"
+    >
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+            >
+              Fullstack <span class="text-primary">Developer</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+             To associate myself with a forward-thinking organization where I can
+leverage my innovative skills and technical expertise as a Full Stack
+Developer, contributing meaningfully to the organization's success while
+continuously growing in my professional career through challenging
+projects and collaborative learning opportunities.
+            </p>
+            <div class="flex flex-wrap gap-4 mb-8">
+              <a
+                href="#projects"
+                class="group bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-button font-medium transition-all whitespace-nowrap flex items-center"
+              >
+                View Projects
+                <i
+                  class="ri-arrow-right-line ml-2 transition-transform group-hover:translate-x-1"
+                ></i>
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1rYUk8mGh8_XAwDgaxavK8cUDztlsMDJ-/view?usp=sharing"
+                class="group bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-button font-medium transition-all whitespace-nowrap flex items-center border-2 border-gray-200"
+              >
+                Download CV
+                <i
+                  class="ri-download-line ml-2 transition-transform group-hover:translate-y-0.5"
+                ></i>
+              </a>
+            </div>
+          </div>
+          <div class="relative">
+            <img
+              src="./Image/20240113112559_IMG_3746.JPG"
+              alt="Developer"
+              class="rounded-2xl shadow-2xl w-72 h-72 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] object-cover mx-auto"
+            />
+            <div
+              class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg flex items-center gap-4"
+            >
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center"
+              >
+                <i class="ri-code-s-slash-line ri-lg text-primary"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Fresher</p>
+                <p class="text-sm text-gray-500">Passout-2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <div
+            class="inline-flex items-center justify-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4"
+          >
+            My Expertise
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Skills & Technologies
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Specialized in Python and Django with extensive experience in
+            building web applications and RESTful APIs.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- Backend Development -->
+          <div
+            class="bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-2xl p-8 hover:shadow-xl transition-all"
+          >
+            <div class="flex items-center gap-4 mb-8">
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl"
+              >
+                <i class="ri-code-s-slash-line ri-2x text-primary"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold">Backend</h3>
+                <p class="text-gray-500">Core Technologies</p>
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                    alt="Python"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">Python</span>
+                    <span>75%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 95%"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+                    alt="Django"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">Django</span>
+                    <span>70%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                  </div>
+                </div>
+              </div>
+             
+              
+            </div>
+          </div>
+          <!-- Database & Tools -->
+          <div
+            class="bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-2xl p-8 hover:shadow-xl transition-all"
+          >
+            <div class="flex items-center gap-4 mb-8">
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl"
+              >
+                <i class="ri-database-2-line ri-2x text-primary"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold">Database & Tools</h3>
+                <p class="text-gray-500">Storage </p>
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="./Image/mysql-logo-pure.svg"
+                    alt="PostgreSQL"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">MySQL</span>
+                    <span>70%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+          </div>
+          <!-- Frontend & APIs -->
+          <div
+            class="bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-2xl p-8 hover:shadow-xl transition-all"
+          >
+            <div class="flex items-center gap-4 mb-8">
+              <div
+                class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl"
+              >
+                <i class="ri-layout-line ri-2x text-primary"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold">Frontend</h3>
+                <p class="text-gray-500">Client & Integration</p>
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="JavaScript"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">JavaScript</span>
+                    <span>75%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                    alt="React"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">React</span>
+                    <span>50%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="./Image/html-1.svg"
+                    alt="GraphQL"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">HTML</span>
+                    <span>90%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 75%"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm"
+              >
+                <div class="w-12 h-12 flex items-center justify-center">
+                  <img
+                    src="./Image/css-3.svg"
+                    alt="Tailwind CSS"
+                    class="w-10 h-10"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between mb-2">
+                    <span class="font-medium">CSS</span>
+                    <span>80%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Projects Section -->
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Project Showcase
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            A collection of my most significant projects built with Python,
+            Django, and other technologies.
+          </p>
+        </div>
+        <div class="mb-8 flex justify-center">
+          <div class="inline-flex bg-gray-100 rounded-full p-1">
+            <button
+              class="filter-btn active px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-primary text-white"
+              data-filter="all"
+            >
+              All Projects
+            </button>
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap"
+              data-filter="django"
+            >
+              Django
+            </button>
+            
+            <button
+              class="filter-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap"
+              data-filter="fullstack"
+            >
+              Full Stack
+            </button>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            data-category="django fullstack"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="./Image/Screenshot_24-6-2025_02922_127.0.0.1.jpeg"
+                alt="E-commerce Platform"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">The Education Donation Website</h3>
+              <p class="text-gray-600 mb-4">
+               Built a secure, user-friendly website that connects donors with students needing financial help. Students apply for aid, and donors give to individuals or a general fund.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Django</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >MySQL</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Html</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >JavaScript</span
+                >
+                <span
+                  class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Css</span
+                >
+                  <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Python</span
+                >
+                 <span
+                  class="bg-rose-100 text-rose-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Bootstrap</span
+                >
+              </div>
+              <div class="flex space-x-3">
+                
+                <a
+                  href="https://github.com/Hariprakash3131/Donationweb"
+                  class="text-gray-700 hover:text-gray-900 font-medium flex items-center"
+                >
+                  <i class="ri-github-fill mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            data-category="api django"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="./Image/Screenshot_24-6-2025_03448_.jpeg"
+                alt="RESTful API Service"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Pet-Adopt</h3>
+              <p class="text-gray-600 mb-4">
+               Built a secure, user-friendly website that connects adopters with pets in need of a home. Users can browse available animals, submit adoption applications, and track their status. Admins manage listings and view adopter details through an intuitive UI.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Html</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Css</span
+                >
+                <span
+                  class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >JavaScript</span
+                >
+                <span
+                  class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Bootstrap</span
+                >
+              </div>
+              <div class="flex space-x-3">
+                <a
+                  href="https://dog-adoptt.netlify.app/"
+                  class="text-primary hover:text-primary/80 font-medium flex items-center"
+                >
+                  <i class="ri-link mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="https://github.com/Hariprakash3131/dog"
+                  class="text-gray-700 hover:text-gray-900 font-medium flex items-center"
+                >
+                  <i class="ri-github-fill mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            data-category="fullstack django"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="./Image/Screenshot_24-6-2025_1098_.jpeg"
+                alt="Project Management Tool"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">
+                Flipkart
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Created a single-page, Flipkart-style UI for a pet adoption platform. Users can browse pets like products, view basic details, and apply for adoption—all from one clean, user-friendly page.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Html</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Css</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >BootStrap</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="flex space-x-3">
+                <a
+                  href="https://flip-ecom-c2882d.netlify.app/"
+                  class="text-primary hover:text-primary/80 font-medium flex items-center"
+                >
+                  <i class="ri-link mr-1"></i> Live Demo
+                </a>
+                <a
+                  href=""
+                  class="text-gray-700 hover:text-gray-900 font-medium flex items-center"
+                >
+                  <i class="ri-github-fill mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 4 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            data-category="api django"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="./Image/redbus.jpeg"
+                alt="Data Analysis Platform"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Bus </h3>
+              <p class="text-gray-600 mb-4">
+               Created a single-page bus booking interface inspired by Redbus, featuring search by destination and drop locations, date selection, real-time seat layout, pricing display, available offers, and a smooth, responsive booking flow—all within a clean UI.
+
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Html</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Css</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Tailwind css</span
+                >
+                
+              </div>
+              <div class="flex space-x-3">
+                <a
+                  href="https://684fc669bb495609c1cc98c2--redbusdemo.netlify.app/"
+                  class="text-primary hover:text-primary/80 font-medium flex items-center"
+                >
+                  <i class="ri-link mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="https://github.com/Hariprakash3131/redbusdemo"
+                  class="text-gray-700 hover:text-gray-900 font-medium flex items-center"
+                >
+                  <i class="ri-github-fill mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 5 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            data-category="fullstack"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="./Image/insta.jpeg"
+                alt="Social Network"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">
+                Instagram Clone
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Built a social networking platform using React, featuring user profiles, photo/video posts, comments, real-time chat, and notification support. The UI mimics Instagram’s modern design with responsive layouts and seamless user interactions.
+
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >React</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Html</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Css</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="flex space-x-3">
+                <a
+                  href="https://insta-website.vercel.app/"
+                  class="text-primary hover:text-primary/80 font-medium flex items-center"
+                >
+                  <i class="ri-link mr-1"></i> Live Demo
+                </a>
+                <a
+                  href="https://github.com/Hariprakash3131/Insta-website"
+                  class="text-gray-700 hover:text-gray-900 font-medium flex items-center"
+                >
+                  <i class="ri-github-fill mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 6 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            data-category="django api"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="./Image/redbus1.jpeg"
+                alt="Booking System"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">
+                RedBus
+              </h3>
+              <p class="text-gray-600 mb-4">
+              Developed a Redbus-inspired single-page UI featuring a responsive home page with destination search, and integrated login/signup functionality using a Django backend. User authentication is handled securely via Django views and models, ensuring smooth communication between frontend and backend.
+
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Django</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Html</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Css</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="flex space-x-3">
+                
+                <a
+                  href="https://github.com/Hariprakash3131/Redbus-clone"
+                  class="text-gray-700 hover:text-gray-900 font-medium flex items-center"
+                >
+                  <i class="ri-github-fill mr-1"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Professional Experience
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          I'm a Frontend Developer with experience working on different projects and roles, building responsive and user-friendly websites.
+          </p>
+        </div>
+        <div class="max-w-3xl mx-auto relative pl-10">
+          <!-- Timeline Line -->
+          <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+          <!-- Experience 1 -->
+          <div class="timeline-item relative pl-8">
+            <div
+              class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
+            >
+              <div class="flex flex-wrap justify-between items-start mb-4">
+                <div>
+                  <h3 class="text-xl font-semibold">
+                    Frontend Developer
+                  </h3>
+                  <p class="text-primary font-medium">ThinkCove Technologies Chennai</p>
+                </div>
+                <p class="text-gray-500 text-sm">Mat 2024 - June 2024</p>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Developed and enhanced user interfaces using HTML, CSS, JavaScript, and
+Bootstrap. Gained practical experience in responsive web design,
+debugging, and cross-browser compatibility. Collaborated effectively with
+a development team to deliver clean, user-friendly, and accessible web
+pages.
+              </p>
+              <ul class="list-disc list-inside text-gray-600 space-y-2">
+                <li>
+                  Contributed to the development of responsive UI components for a web application.
+                </li>
+                <li>
+                 Assisted in implementing user authentication and form validation using JavaScript.
+                </li>
+                <li>
+                 Fixed UI bugs and optimized pages for mobile responsiveness.
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Get In Touch
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Interested in working together? Feel free to contact me for any
+            project or collaboration.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <!-- Contact Info -->
+          <div class="bg-white rounded-lg shadow-lg p-8">
+            <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4"
+                >
+                  <i class="ri-mail-line ri-lg text-primary"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 mb-1">Email</p>
+                  <p class="font-medium">harip162931@gmail.com</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4"
+                >
+                  <i class="ri-map-pin-line ri-lg text-primary"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 mb-1">Location</p>
+                  <p class="font-medium">Tirunelveli,Tamilnadu</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4"
+                >
+                  <i class="ri-phone-line ri-lg text-primary"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 mb-1">Phone</p>
+                  <p class="font-medium">+91 6382947727</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-8">
+              <h4 class="text-lg font-semibold mb-4">Connect With Me</h4>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                >
+                  <i class="ri-github-fill ri-lg text-gray-700"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                >
+                  <i class="ri-linkedin-fill ri-lg text-gray-700"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                >
+                  <i class="ri-twitter-fill ri-lg text-gray-700"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                >
+                  <i class="ri-stack-overflow-line ri-lg text-gray-700"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Contact Form -->
+          <div class="bg-white rounded-lg shadow-lg p-8">
+            <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
+            <form id="contact-form">
+              <div class="mb-6">
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Your Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors"
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Your Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors"
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="subject"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors"
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  rows="5"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors resize-none"
+                  placeholder="Your message here..."
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-button transition-colors whitespace-nowrap"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <a href="#" class="text-2xl font-['Pacifico'] text-white">Hariprakash</a>
+            <p class="mt-2 text-gray-400">Fullstack Developer</p>
+          </div>
+          <div class="flex flex-wrap justify-center gap-6 mb-6 md:mb-0">
+            <a
+              href="#home"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Home</a
+            >
+            <a
+              href="#projects"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Projects</a
+            >
+            <a
+              href="#skills"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Skills</a
+            >
+            <a
+              href="#experience"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Experience</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Contact</a
+            >
+          </div>
+          <div class="flex space-x-4">
+            <a
+              href="https://github.com/Hariprakash3131"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-full transition-colors"
+            >
+              <i class="ri-github-fill ri-lg"></i>
+            </a>
+            <a
+              href="www.linkedin.com/in/hariprakash-m-02646435b"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-full transition-colors"
+            >
+              <i class="ri-linkedin-fill ri-lg"></i>
+            </a>
+           
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+         
+        </div>
+      </div>
+    </footer>
+    <!-- Back to top button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 w-12 h-12 bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300"
+    >
+      <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+    <!-- Scripts -->
+    <script id="navigation-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+          // Change icon based on menu state
+          const icon = mobileMenuButton.querySelector("i");
+          if (mobileMenu.classList.contains("hidden")) {
+            icon.className = "ri-menu-line ri-lg";
+          } else {
+            icon.className = "ri-close-line ri-lg";
+          }
+        });
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+            mobileMenuButton.querySelector("i").className = "ri-menu-line ri-lg";
+          });
+        });
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80, // Adjust for header height
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+    <script id="back-to-top-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const backToTopButton = document.getElementById("back-to-top");
+        // Show/hide back to top button based on scroll position
+        window.addEventListener("scroll", function () {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.remove("opacity-0", "invisible");
+            backToTopButton.classList.add("opacity-100", "visible");
+          } else {
+            backToTopButton.classList.remove("opacity-100", "visible");
+            backToTopButton.classList.add("opacity-0", "invisible");
+          }
+        });
+        // Scroll to top when button is clicked
+        backToTopButton.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+    <script id="project-filter-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const projectCards = document.querySelectorAll(".project-card");
+        // Filter projects based on category
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const filter = this.getAttribute("data-filter");
+            // Update active button
+            filterButtons.forEach((btn) => {
+              btn.classList.remove("bg-primary", "text-white");
+              btn.classList.add("text-gray-700");
+            });
+            this.classList.add("bg-primary", "text-white");
+            this.classList.remove("text-gray-700");
+            // Filter projects
+            projectCards.forEach((card) => {
+              const categories = card.getAttribute("data-category").split(" ");
+              if (filter === "all" || categories.includes(filter)) {
+                card.style.display = "block";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+    </script>
+    <script id="contact-form-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contact-form");
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          // Get form values
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const subject = document.getElementById("subject").value;
+          const message = document.getElementById("message").value;
+          // Normally you would send this data to a server
+          // For demo purposes, we'll just show an alert
+          alert(`Thank you for your message, ${name}! I'll get back to you soon.`);
+          // Reset form
+          contactForm.reset();
+        });
+      });
+    </script>
+    <script id="skill-animation-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Animate skill bars when they come into view
+        const skillBars = document.querySelectorAll(".skill-progress");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.width =
+                  entry.target.parentElement.previousElementSibling.querySelector(
+                    "span:last-child",
+                  ).textContent;
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 },
+        );
+        skillBars.forEach((bar) => {
+          bar.style.width = "0%";
+          observer.observe(bar);
+        });
+      });
+    </script>
+  </body>
+</html>

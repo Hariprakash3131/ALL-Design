@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Bootstrap 5 CSS -->
+     <link
+     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+     rel="stylesheet"
+   />
+   <!-- FontAwesome -->
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+   <link
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+     rel="stylesheet"
+   />
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        .main-navbar {
+            background-color: #1f1f1f;
+            font-family: "Jost", sans-serif;
+          }
+          
+          .main-navbar .nav-link {
+            color: #3bcf93 !important;
+            margin-right: 20px;
+          }
+          
+          .main-navbar .nav-link:hover {
+            color: #ebf0eb !important;
+            text-decoration: underline;
+          }
+          
+          .social-links .nav-link {
+            color: #3bcf93 !important;
+            margin-right: 10px;
+          }
+          
+          .social-links .nav-link:hover {
+            color: #ebf0eb !important;
+            text-decoration: underline;
+          }
+          
+          .auth-buttons .btn-login {
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+          }
+          
+          .auth-buttons .btn-login:hover {
+            background-color: #ffffff;
+            color: #000;
+          }
+          
+          .auth-buttons .btn-signup {
+            background-color: #3bcf93;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+          }
+          
+          .auth-buttons .btn-signup:hover {
+            background-color: #090404;
+          }
+          
+          .navbar-brand img {
+            height: 50px;
+            border-radius: 50%;
+          }
+          
+          .logo-container {
+            background-color: #f0f0f0; 
+            padding: 10px; 
+            border-radius: 10px; 
+            display: inline-block; 
+          }
+          
+          .logo-container img {
+            border-radius: 5px; 
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+          }
+          
+          .navbar-custom {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url('{% static "accounts/rrr.png" %}') ;
+            background-size: cover; 
+            background-position: center; 
+            height: 300px; 
+            position: relative;
+          
+            color: white; 
+          }
+          
+          .navbar-custom .container {
+            position: relative;
+            z-index: 2; 
+            background-color: #ebf0eb;
+            border-radius: 6px;
+          }
+        
+          .navbar-toggler {
+            border-color: #fff;
+          }
+          .btn-donate {
+            background-color: #4caf50; /* Green color */
+            color: #fff; /* White text */
+            font-weight: bold; /* Bold text */
+            padding: 4px 22px; /* Comfortable padding */
+            border: none; /* Remove border */
+            border-radius: 34px; /* Fully rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            transition: all 0.3s ease-in-out; /* Smooth hover effects */
+            text-transform: uppercase; /* Make text uppercase */
+            position: relative;
+            left: 4px;
+            overflow: hidden; /* For animation effect */
+            display: flex;
+            align-items: center;
+          }
+          
+          /* Icon Animation */
+          .btn-donate .fa-book-open {
+            font-size: 16px; /* Size of the icon */
+            animation: pulse 1s infinite; /* Pulse animation */
+          }
+          .hero-section {
+            background-image: url('selection.png'); /* Replace with your image path */
+            background-size: cover; /* Cover the entire div */
+            background-position: center; /* Center the image */
+            padding: 100px 20px; /* Add padding for spacing */
+            text-align: center; /* Center-align the text */
+            color: white; /* Text color */
+            font-family: 'Roboto', sans-serif; /* Use a modern font */
+            min-height: 60px;
+        }
+        
+        /* Style the heading */
+        .hero-section h1 {
+            font-size: 2.5em; /* Large font size */
+            font-weight: bold; /* Bold text */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
+            margin: 0; /* Remove default margin */
+            color: #585050;
+        }
+        
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 1.8em; /* Smaller font size for mobile */
+            }
+        }
+
+        /* General styles */
+.page-body {
+  font-family: "Jost", Sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    text-align: center;
+}
+
+.main-heading {
+  
+    font-size: 2em;
+    color: #911111;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size:50px ;
+    
+  
+}
+
+.process-description {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.step-item {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+    margin: 0 5px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    .steps-container {
+        flex-direction: column;
+    }
+
+    .step-item {
+        margin: 5px 0;
+    }
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark main-navbar">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbarContent"
+            aria-controls="mainNavbarContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="mainNavbarContent">
+            <!-- Social Links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 social-links">
+              <li class="nav-item">
+                <a href="https://facebook.com" target="_blank" class="nav-link"
+                  ><i class="fab fa-facebook"></i
+                ></a>
+              </li>
+              <li class="nav-item">
+                <a href="https://twitter.com" target="_blank" class="nav-link"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </li>
+              <li class="nav-item">
+                <a href="https://instagram.com" target="_blank" class="nav-link"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </li>
+              <li class="nav-item">
+                <a href="https://linkedin.com" target="_blank" class="nav-link"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </li>
+            </ul>
+  
+            <!-- Auth Buttons -->
+            <div class="d-flex auth-buttons">
+              <a href="{% url 'login' %}" class="btn btn-login me-2">
+                <i class="fas fa-sign-in-alt me-1"></i> Login
+              </a>
+              <a href="{% url 'signup' %}" class="btn btn-signup">
+                <i class="fas fa-user-plus me-1"></i> Sign Up
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+  
+      <!-- Secondary Navbar -->
+     
+      <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
+        
+        <div class="container">
+          <div class="logo-container">
+            <img src="{% static 'accounts/ch.png' %}" alt="Logo" width="70" height="60" />
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'my_activities' %}">My Activities</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+  
+            </ul>
+            <form class="d-flex">
+              <div class="input-group">
+                <a href="{% url 'donation_form' %}" class="btn btn-donate">
+                  <i class="fas fa-book-open me-2"></i> Donate
+                </a>
+        </div>
+      </nav>
+   
+
+      <div class="hero-section">
+        <h1>Our volunteers work at the grassroots to find the meritorious students who are at risk of discontinuing their education because of poverty</h1>
+    </div>
+
+   <div class="page-body">
+    <div class="">
+        <h1 class="main-heading">Our Student Selection Process</h1>
+        <p class="process-description">
+            Anandham adheres to a strict selection process to ensure our donor’s contributions reach only the highly deserving economically poor students. All our students are selected through a 5-step filtration process.
+        </p>
+        <div class="steps-container">
+            <div class="step-item">Step 1</div>
+            <div class="step-item">Step 2</div>
+            <div class="step-item">Step 3</div>
+            <div class="step-item">Step 4</div>
+            <div class="step-item">Step 5</div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

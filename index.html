@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Ticket Booking Online</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#D84E55',secondary:'#4CAF50'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-section {
+            background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20cityscape%20with%20mountains%20and%20hills%20in%20the%20background%2C%20soft%20gradient%20colors%20of%20blue%20and%20purple%2C%20with%20a%20winding%20road%2C%20minimal%20flat%20design%20style%20with%20soft%20colors%2C%20perfect%20for%20a%20bus%20booking%20website%20hero%20background%2C%20peaceful%20scene%20with%20small%20trees&width=1600&height=600&seq=1&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        .wave-divider {
+            position: relative;
+            height: 30px;
+            background-color: #e6f7e9;
+        }
+        .wave-divider::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: radial-gradient(20px at top, transparent 98%, #e6f7e9 100%) repeat-x;
+            background-size: 40px 20px;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+                    <div class="text-primary font-['Pacifico'] text-2xl">logo</div>
+                    <nav class="hidden md:flex">
+                        <div class="flex space-x-1">
+                            <a href="#" class="flex items-center px-4 py-2 text-primary border-b-2 border-primary">
+                                <div class="w-6 h-6 flex items-center justify-center mr-2">
+                                    <i class="ri-bus-line"></i>
+                                </div>
+                                <span>Bus tickets</span>
+                            </a>
+                            <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:text-primary">
+                                <div class="w-6 h-6 flex items-center justify-center mr-2">
+                                    <i class="ri-train-line"></i>
+                                </div>
+                                <span>Train tickets</span>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="#" class="flex items-center text-gray-700 hover:text-primary">
+                        <div class="w-5 h-5 flex items-center justify-center mr-1">
+                            <i class="ri-bookmark-line"></i>
+                        </div>
+                        <span>Bookings</span>
+                    </a>
+                    <a href="#" class="flex items-center text-gray-700 hover:text-primary">
+                        <div class="w-5 h-5 flex items-center justify-center mr-1">
+                            <i class="ri-question-line"></i>
+                        </div>
+                        <span>Help</span>
+                    </a>
+                    <a href="#" class="flex items-center text-gray-700 hover:text-primary">
+                        <div class="w-5 h-5 flex items-center justify-center mr-1">
+                            <i class="ri-user-line"></i>
+                        </div>
+                        <span>Account</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-16 relative">
+        <div class="container mx-auto px-4 w-full">
+            <div class="max-w-xl mb-12 text-white">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                    India's No. 1 online bus ticket booking site
+                </h1>
+            </div>
+
+           <!-- Search Form -->
+<div class="bg-white rounded-xl shadow-lg p-6 md:p-8 max-w-6xl mx-auto mt-6 transition-all duration-300">
+  <!-- Inputs Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <!-- From Input -->
+    <div>
+      <label for="from" class="block text-sm font-medium text-gray-600 mb-1">From</label>
+      <div class="flex items-center border border-gray-300 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-primary transition">
+        <i class="ri-bus-line text-lg text-gray-400 mr-2"></i>
+        <input
+          id="from"
+          type="text"
+          placeholder="Departure city"
+          class="w-full bg-transparent outline-none text-gray-800 placeholder-gray-400"
+        />
+      </div>
+    </div>
+
+    <!-- To Input -->
+    <div>
+      <label for="to" class="block text-sm font-medium text-gray-600 mb-1">To</label>
+      <div class="flex items-center border border-gray-300 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-primary transition">
+        <i class="ri-bus-line text-lg text-gray-400 mr-2"></i>
+        <input
+          id="to"
+          type="text"
+          placeholder="Arrival city"
+          class="w-full bg-transparent outline-none text-gray-800 placeholder-gray-400"
+        />
+      </div>
+    </div>
+
+    <!-- Date Picker -->
+    <div>
+      <label for="date" class="block text-sm font-medium text-gray-600 mb-1">Date of Journey</label>
+      <div class="border border-gray-300 rounded-lg px-4 py-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <i class="ri-calendar-line text-lg text-gray-400 mr-2"></i>
+            <input
+              id="date"
+              type="date"
+              value="2025-06-15"
+              class="bg-transparent outline-none text-gray-800 placeholder-gray-400"
+            />
+          </div>
+          <div class="hidden sm:flex space-x-2">
+            <button type="button" class="text-sm bg-gray-100 px-3 py-1.5 rounded-full text-gray-700 hover:bg-primary hover:text-white transition">
+              Today
+            </button>
+            <button type="button" class="text-sm bg-gray-100 px-3 py-1.5 rounded-full text-gray-700 hover:bg-primary hover:text-white transition">
+              Tomorrow
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Women Booking Toggle -->
+  <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-8 gap-4 sm:gap-0">
+    <div></div>
+    <div class="flex items-center bg-gray-100 rounded-full px-4 py-2">
+      <i class="ri-women-line text-pink-500 mr-2 text-lg"></i>
+      <span class="text-gray-700 mr-3 text-sm">
+        Booking for women
+        <span class="text-primary font-medium ml-1 cursor-pointer hover:underline">Know more</span>
+      </span>
+      <label class="relative inline-flex items-center cursor-pointer ml-2">
+        <input type="checkbox" class="sr-only peer" />
+        <div
+          class="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-primary transition-all after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"
+        ></div>
+      </label>
+    </div>
+  </div>
+
+  <!-- Search Button -->
+  <div class="flex justify-center">
+    <button
+      type="submit"
+      class="bg-primary text-white px-8 py-3 rounded-full flex items-center hover:bg-primary-dark transition"
+    >
+      <i class="ri-search-line mr-2 text-lg"></i>
+      Search buses
+    </button>
+  </div>
+</div>
+
+        </div>
+    </section>
+
+    <!-- Wave Divider -->
+    <div class="wave-divider"></div>
+
+    <!-- Stats Section -->
+    <section class="bg-[#e6f7e9] py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">25,000+ people booked from Bengaluru</h2>
+                    <p class="text-gray-600">on our platform last month</p>
+                </div>
+                <div>
+                    <img src="https://readdy.ai/api/search-image?query=Illustration%20of%20diverse%20group%20of%20Indian%20people%2C%20colorful%20traditional%20clothing%2C%20flat%20design%20style%2C%20happy%20travelers%2C%20family%20group%20with%20children%2C%20vibrant%20colors&width=300&height=200&seq=2&orientation=landscape" alt="Happy travelers" class="h-32 object-contain">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Offers for you</h2>
+                <a href="#" class="text-primary hover:underline">View more</a>
+            </div>
+
+            <!-- Tabs -->
+            <div class="mb-6">
+                <div class="inline-flex border rounded-full overflow-hidden">
+                    <button class="bg-primary text-white px-6 py-2 whitespace-nowrap !rounded-button">All</button>
+                    <button class="text-gray-700 px-6 py-2 hover:bg-gray-100 whitespace-nowrap !rounded-button">Bus</button>
+                    <button class="text-gray-700 px-6 py-2 hover:bg-gray-100 whitespace-nowrap !rounded-button">Train</button>
+                </div>
+            </div>
+
+            <!-- Offers Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Offer 1 -->
+                <div class="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                    <div class="h-40 bg-gray-100 relative">
+                        <img src="https://readdy.ai/api/search-image?query=Travel%20discount%20offer%2C%20bus%20ticket%20promotion%2C%20flat%20design%20style%2C%20vibrant%20colors%2C%20money%20saving%20concept%2C%20coupon%20design%2C%2050%25%20off%20visual&width=400&height=200&seq=3&orientation=landscape" alt="Special offer" class="w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 bg-primary text-white text-sm font-bold px-2 py-1 rounded">50% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Weekend Special Offer</h3>
+                        <p class="text-gray-600 text-sm mb-3">Get 50% off on all weekend bus bookings. Valid until June 30, 2025.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-medium">Use code: WEEKEND50</span>
+                            <button class="text-primary border border-primary px-3 py-1 rounded-full text-sm hover:bg-primary hover:text-white transition-colors whitespace-nowrap !rounded-button">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer 2 -->
+                <div class="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                    <div class="h-40 bg-gray-100 relative">
+                        <img src="https://readdy.ai/api/search-image?query=First%20time%20user%20offer%2C%20new%20customer%20discount%2C%20flat%20design%20style%2C%20vibrant%20colors%2C%20welcome%20bonus%20concept%2C%20first%20journey%20visual%2C%20new%20user&width=400&height=200&seq=4&orientation=landscape" alt="First journey offer" class="w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 bg-green-500 text-white text-sm font-bold px-2 py-1 rounded">NEW USER</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">First Journey Discount</h3>
+                        <p class="text-gray-600 text-sm mb-3">First-time users get ₹150 off on their initial booking. No minimum fare required.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-medium">Use code: FIRST150</span>
+                            <button class="text-primary border border-primary px-3 py-1 rounded-full text-sm hover:bg-primary hover:text-white transition-colors whitespace-nowrap !rounded-button">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer 3 -->
+                <div class="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                    <div class="h-40 bg-gray-100 relative">
+                        <img src="https://readdy.ai/api/search-image?query=Group%20travel%20discount%2C%20family%20journey%20offer%2C%20flat%20design%20style%2C%20vibrant%20colors%2C%20group%20booking%20concept%2C%20friends%20traveling%20together%2C%20multiple%20seats&width=400&height=200&seq=5&orientation=landscape" alt="Group booking offer" class="w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 bg-blue-500 text-white text-sm font-bold px-2 py-1 rounded">GROUP DEAL</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Group Booking Offer</h3>
+                        <p class="text-gray-600 text-sm mb-3">Book 4 or more tickets together and get 20% off on total fare. Perfect for family trips.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-medium">Use code: GROUP20</span>
+                            <button class="text-primary border border-primary px-3 py-1 rounded-full text-sm hover:bg-primary hover:text-white transition-colors whitespace-nowrap !rounded-button">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Popular Routes Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Popular Bus Routes</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Route 1 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3 text-primary">
+                                <i class="ri-route-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Mumbai to Pune</h3>
+                                <p class="text-sm text-gray-500">148 km | 3 hrs</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-semibold text-gray-800">₹350</div>
+                            <div class="text-sm text-gray-500">onwards</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <div class="text-gray-600">125+ buses daily</div>
+                        <button class="text-primary hover:underline whitespace-nowrap">View buses</button>
+                    </div>
+                </div>
+                
+                <!-- Route 2 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3 text-primary">
+                                <i class="ri-route-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Bengaluru to Chennai</h3>
+                                <p class="text-sm text-gray-500">346 km | 6 hrs</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-semibold text-gray-800">₹650</div>
+                            <div class="text-sm text-gray-500">onwards</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <div class="text-gray-600">80+ buses daily</div>
+                        <button class="text-primary hover:underline whitespace-nowrap">View buses</button>
+                    </div>
+                </div>
+                
+                <!-- Route 3 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3 text-primary">
+                                <i class="ri-route-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Delhi to Jaipur</h3>
+                                <p class="text-sm text-gray-500">281 km | 5 hrs</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-semibold text-gray-800">₹550</div>
+                            <div class="text-sm text-gray-500">onwards</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <div class="text-gray-600">95+ buses daily</div>
+                        <button class="text-primary hover:underline whitespace-nowrap">View buses</button>
+                    </div>
+                </div>
+                
+                <!-- Route 4 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3 text-primary">
+                                <i class="ri-route-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Hyderabad to Vijayawada</h3>
+                                <p class="text-sm text-gray-500">275 km | 5.5 hrs</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-semibold text-gray-800">₹500</div>
+                            <div class="text-sm text-gray-500">onwards</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <div class="text-gray-600">70+ buses daily</div>
+                        <button class="text-primary hover:underline whitespace-nowrap">View buses</button>
+                    </div>
+                </div>
+                
+                <!-- Route 5 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3 text-primary">
+                                <i class="ri-route-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Ahmedabad to Vadodara</h3>
+                                <p class="text-sm text-gray-500">113 km | 2 hrs</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-semibold text-gray-800">₹250</div>
+                            <div class="text-sm text-gray-500">onwards</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <div class="text-gray-600">110+ buses daily</div>
+                        <button class="text-primary hover:underline whitespace-nowrap">View buses</button>
+                    </div>
+                </div>
+                
+                <!-- Route 6 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3 text-primary">
+                                <i class="ri-route-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Kolkata to Siliguri</h3>
+                                <p class="text-sm text-gray-500">570 km | 11 hrs</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-semibold text-gray-800">₹850</div>
+                            <div class="text-sm text-gray-500">onwards</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <div class="text-gray-600">45+ buses daily</div>
+                        <button class="text-primary hover:underline whitespace-nowrap">View buses</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <button class="bg-white border border-primary text-primary px-6 py-2 rounded-full hover:bg-primary hover:text-white transition-colors whitespace-nowrap !rounded-button">
+                    View all popular routes
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">About Us</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">About Company</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Customer Support</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Ticket Status</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Popular Bus Routes</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Mumbai to Pune</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Bengaluru to Chennai</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Delhi to Jaipur</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Hyderabad to Vijayawada</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Ahmedabad to Vadodara</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-medium mb-2">Download Our App</h4>
+                        <div class="flex space-x-3">
+                            <a href="#" class="flex items-center bg-black px-3 py-2 rounded">
+                                <div class="w-6 h-6 flex items-center justify-center mr-2">
+                                    <i class="ri-google-play-fill ri-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs">GET IT ON</div>
+                                    <div class="text-sm font-medium">Google Play</div>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center bg-black px-3 py-2 rounded">
+                                <div class="w-6 h-6 flex items-center justify-center mr-2">
+                                    <i class="ri-apple-fill ri-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs">DOWNLOAD ON</div>
+                                    <div class="text-sm font-medium">App Store</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <p class="text-gray-400">&copy; 2025 Bus Ticket Booking. All rights reserved.</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-gray-400">Payment Options:</span>
+                        <div class="flex space-x-3">
+                            <div class="w-8 h-8 flex items-center justify-center bg-white rounded">
+                                <i class="ri-visa-line text-blue-600"></i>
+                            </div>
+                            <div class="w-8 h-8 flex items-center justify-center bg-white rounded">
+                                <i class="ri-mastercard-line text-orange-600"></i>
+                            </div>
+                            <div class="w-8 h-8 flex items-center justify-center bg-white rounded">
+                                <i class="ri-paypal-line text-blue-500"></i>
+                            </div>
+                            <div class="w-8 h-8 flex items-center justify-center bg-white rounded">
+                                <i class="ri-amazon-pay-line text-black"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script id="formInteractions">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle for women booking
+            const womenBookingToggle = document.querySelector('input[type="checkbox"]');
+            womenBookingToggle.addEventListener('change', function() {
+                console.log('Women booking option:', this.checked ? 'enabled' : 'disabled');
+            });
+            
+            // Search button click
+            const searchButton = document.querySelector('button.bg-primary');
+            searchButton.addEventListener('click', function() {
+                const fromInput = document.querySelector('input[placeholder="From"]');
+                const toInput = document.querySelector('input[placeholder="To"]');
+                
+                if (!fromInput.value.trim()) {
+                    alert('Please enter departure city');
+                    return;
+                }
+                
+                if (!toInput.value.trim()) {
+                    alert('Please enter destination city');
+                    return;
+                }
+                
+                console.log('Searching buses from', fromInput.value, 'to', toInput.value);
+                alert('Searching for buses...');
+            });
+        });
+    </script>
+
+    <script id="tabInteractions">
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.inline-flex.border button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('bg-primary', 'text-white');
+                        btn.classList.add('text-gray-700');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('bg-primary', 'text-white');
+                    this.classList.remove('text-gray-700');
+                    
+        
+                    console.log('Tab switched to:', this.textContent.trim());
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Ticket Booking Online</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #D84E55;
+            --secondary-color: #4CAF50;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .logo {
+            font-family: 'Pacifico', cursive;
+            color: var(--primary-color);
+            font-size: 1.75rem;
+        }
+        
+        .hero-section {
+            background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20cityscape%20with%20mountains%20and%20hills%20in%20the%20background%2C%20soft%20gradient%20colors%20of%20blue%20and%20purple%2C%20with%20a%20winding%20road%2C%20minimal%20flat%20design%20style%20with%20soft%20colors%2C%20perfect%20for%20a%20bus%20booking%20website%20hero%20background%2C%20peaceful%20scene%20with%20small%20trees&width=1600&height=600&seq=1&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 0;
+        }
+        
+        .wave-divider {
+            position: relative;
+            height: 30px;
+            background-color: #e6f7e9;
+        }
+        
+        .wave-divider::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: radial-gradient(20px at top, transparent 98%, #e6f7e9 100%) repeat-x;
+            background-size: 40px 20px;
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color) !important;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .search-form {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .form-control, .form-select {
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(216, 78, 85, 0.25);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c53d44;
+            border-color: #c53d44;
+        }
+        
+        .offer-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .offer-badge {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+        
+        .route-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+        }
+        
+        .route-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .route-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(216, 78, 85, 0.1);
+            border-radius: 50%;
+            color: var(--primary-color);
+            font-size: 1.25rem;
+        }
+        
+        footer {
+            background-color: #2d3748;
+            color: white;
+        }
+        
+        footer a {
+            color: #cbd5e0;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: white;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4a5568;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .app-download-btn {
+            display: flex;
+            align-items: center;
+            background-color: black;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+        
+        .app-icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+        
+        .payment-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 4px;
+        }
+        
+        /* Custom switch for women booking */
+        .form-switch .form-check-input {
+            width: 2.75em;
+            height: 1.5em;
+        }
+        
+        .form-switch .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .women-booking-toggle {
+            background-color: #f7fafc;
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+        }
+        
+        /* Tab styling */
+        .nav-pills .nav-link {
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            color: #4a5568;
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light py-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand logo" href="#">logo</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item me-2">
+                                <a class="nav-link active d-flex align-items-center" href="#">
+                                    <i class="ri-bus-line me-2"></i> Bus tickets
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center" href="#">
+                                    <i class="ri-train-line me-2"></i> Train tickets
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item me-3">
+                                <a class="nav-link d-flex align-items-center" href="#">
+                                    <i class="ri-bookmark-line me-2"></i> Bookings
+                                </a>
+                            </li>
+                            <li class="nav-item me-3">
+                                <a class="nav-link d-flex align-items-center" href="#">
+                                    <i class="ri-question-line me-2"></i> Help
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center" href="#">
+                                    <i class="ri-user-line me-2"></i> Account
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+   
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="text-white fw-bold mb-4 display-4">India's No. 1 online bus ticket booking site</h1>
+                </div>
+            </div>
+            
+           
+            <div class="search-form mt-4">
+                <div class="row g-3 mb-4">
+                    <div class="col-md-4">
+                        <label for="from" class="form-label">From</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-end-0"><i class="ri-bus-line"></i></span>
+                            <input type="text" class="form-control border-start-0" id="from" placeholder="Departure city">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="to" class="form-label">To</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-end-0"><i class="ri-bus-line"></i></span>
+                            <input type="text" class="form-control border-start-0" id="to" placeholder="Arrival city">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="date" class="form-label">Date of Journey</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-end-0"><i class="ri-calendar-line"></i></span>
+                            <input type="date" class="form-control border-start-0" id="date" value="2025-06-15">
+                            <div class="d-none d-md-flex ms-2">
+                                <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill me-1">Today</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill">Tomorrow</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mb-4">
+                    <div class="col-12 d-flex justify-content-end">
+                        <div class="women-booking-toggle d-flex align-items-center">
+                            <i class="ri-women-line text-pink-500 me-2 fs-5"></i>
+                            <span class="me-3">
+                                Booking for women
+                                <a href="#" class="text-primary ms-1 fw-medium">Know more</a>
+                            </span>
+                            <div class="form-check form-switch mb-0">
+                                <input class="form-check-input" type="checkbox" id="womenBookingToggle">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button class="btn btn-primary px-5">
+                            <i class="ri-search-line me-2"></i> Search buses
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <div class="wave-divider"></div>
+
+   
+    <section class="bg-light py-5" style="background-color: #e6f7e9;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h2 class="fw-bold mb-2 display-6">25,000+ people booked from Bengaluru</h2>
+                    <p class="text-muted">on our platform last month</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://readdy.ai/api/search-image?query=Illustration%20of%20diverse%20group%20of%20Indian%20people%2C%20colorful%20traditional%20clothing%2C%20flat%20design%20style%2C%20happy%20travelers%2C%20family%20group%20with%20children%2C%20vibrant%20colors&width=300&height=200&seq=2&orientation=landscape" alt="Happy travelers" class="img-fluid" style="max-height: 150px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold mb-0">Offers for you</h2>
+                <a href="#" class="text-primary text-decoration-none">View more</a>
+            </div>
+            
+           
+            <ul class="nav nav-pills mb-4">
+                <li class="nav-item me-2">
+                    <a class="nav-link active" href="#">All</a>
+                </li>
+                <li class="nav-item me-2">
+                    <a class="nav-link" href="#">Bus</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Train</a>
+                </li>
+            </ul>
+            
+           
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card offer-card h-100 border-0 shadow-sm">
+                        <div class="position-relative" style="height: 160px; background-color: #f8f9fa;">
+                            <img src="https://readdy.ai/api/search-image?query=Travel%20discount%20offer%2C%20bus%20ticket%20promotion%2C%20flat%20design%20style%2C%20vibrant%20colors%2C%20money%20saving%20concept%2C%20coupon%20design%2C%2050%25%20off%20visual&width=400&height=200&seq=3&orientation=landscape" class="card-img-top h-100 object-fit-cover" alt="Special offer">
+                            <span class="offer-badge bg-primary text-white">50% OFF</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-semibold">Weekend Special Offer</h5>
+                            <p class="card-text text-muted small mb-3">Get 50% off on all weekend bus bookings. Valid until June 30, 2025.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-medium">Use code: WEEKEND50</span>
+                                <button class="btn btn-outline-primary btn-sm rounded-pill">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card offer-card h-100 border-0 shadow-sm">
+                        <div class="position-relative" style="height: 160px; background-color: #f8f9fa;">
+                            <img src="https://readdy.ai/api/search-image?query=First%20time%20user%20offer%2C%20new%20customer%20discount%2C%20flat%20design%20style%2C%20vibrant%20colors%2C%20welcome%20bonus%20concept%2C%20first%20journey%20visual%2C%20new%20user&width=400&height=200&seq=4&orientation=landscape" class="card-img-top h-100 object-fit-cover" alt="First journey offer">
+                            <span class="offer-badge bg-success text-white">NEW USER</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-semibold">First Journey Discount</h5>
+                            <p class="card-text text-muted small mb-3">First-time users get ₹150 off on their initial booking. No minimum fare required.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-medium">Use code: FIRST150</span>
+                                <button class="btn btn-outline-primary btn-sm rounded-pill">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card offer-card h-100 border-0 shadow-sm">
+                        <div class="position-relative" style="height: 160px; background-color: #f8f9fa;">
+                            <img src="https://readdy.ai/api/search-image?query=Group%20travel%20discount%2C%20family%20journey%20offer%2C%20flat%20design%20style%2C%20vibrant%20colors%2C%20group%20booking%20concept%2C%20friends%20traveling%20together%2C%20multiple%20seats&width=400&height=200&seq=5&orientation=landscape" class="card-img-top h-100 object-fit-cover" alt="Group booking offer">
+                            <span class="offer-badge bg-info text-white">GROUP DEAL</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-semibold">Group Booking Offer</h5>
+                            <p class="card-text text-muted small mb-3">Book 4 or more tickets together and get 20% off on total fare. Perfect for family trips.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-medium">Use code: GROUP20</span>
+                                <button class="btn btn-outline-primary btn-sm rounded-pill">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="fw-bold mb-4">Popular Bus Routes</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card route-card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="route-icon me-3">
+                                        <i class="ri-route-line"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0 fw-medium">Mumbai to Pune</h5>
+                                        <small class="text-muted">148 km | 3 hrs</small>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="fw-semibold">₹350</div>
+                                    <small class="text-muted">onwards</small>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">125+ buses daily</small>
+                                <a href="#" class="text-primary text-decoration-none small">View buses</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card route-card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="route-icon me-3">
+                                        <i class="ri-route-line"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0 fw-medium">Bengaluru to Chennai</h5>
+                                        <small class="text-muted">346 km | 6 hrs</small>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="fw-semibold">₹650</div>
+                                    <small class="text-muted">onwards</small>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">80+ buses daily</small>
+                                <a href="#" class="text-primary text-decoration-none small">View buses</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card route-card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="route-icon me-3">
+                                        <i class="ri-route-line"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0 fw-medium">Delhi to Jaipur</h5>
+                                        <small class="text-muted">281 km | 5 hrs</small>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="fw-semibold">₹550</div>
+                                    <small class="text-muted">onwards</small>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">95+ buses daily</small>
+                                <a href="#" class="text-primary text-decoration-none small">View buses</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card route-card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="route-icon me-3">
+                                        <i class="ri-route-line"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0 fw-medium">Hyderabad to Vijayawada</h5>
+                                        <small class="text-muted">275 km | 5.5 hrs</small>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="fw-semibold">₹500</div>
+                                    <small class="text-muted">onwards</small>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">70+ buses daily</small>
+                                <a href="#" class="text-primary text-decoration-none small">View buses</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card route-card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="route-icon me-3">
+                                        <i class="ri-route-line"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0 fw-medium">Ahmedabad to Vadodara</h5>
+                                        <small class="text-muted">113 km | 2 hrs</small>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="fw-semibold">₹250</div>
+                                    <small class="text-muted">onwards</small>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">110+ buses daily</small>
+                                <a href="#" class="text-primary text-decoration-none small">View buses</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card route-card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="route-icon me-3">
+                                        <i class="ri-route-line"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0 fw-medium">Kolkata to Siliguri</h5>
+                                        <small class="text-muted">570 km | 11 hrs</small>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="fw-semibold">₹850</div>
+                                    <small class="text-muted">onwards</small>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">45+ buses daily</small>
+                                <a href="#" class="text-primary text-decoration-none small">View buses</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <button class="btn btn-outline-primary px-4 rounded-pill">
+                    View all popular routes
+                </button>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="fw-bold mb-3">About Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-secondary">About Company</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary">Terms & Conditions</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary">Blog</a></li>
+                        <li><a href="#" class="text-secondary">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="fw-bold mb-3">Support</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-secondary">Customer Support</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary">Contact Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary">FAQ</a></li>
+                        <li><a href="#" class="text-secondary">Ticket Status</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="fw-bold mb-3">Popular Bus Routes</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-secondary">Mumbai to Pune</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary">Bengaluru to Chennai</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary">Delhi to Jaipur</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary">Hyderabad to Vijayawada</a></li>
+                        <li><a href="#" class="text-secondary">Ahmedabad to Vadodara</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="fw-bold mb-3">Connect With Us</h5>
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="#" class="social-icon"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" class="social-icon"><i class="ri-twitter-fill"></i></a>
+                        <a href="#" class="social-icon"><i class="ri-instagram-line"></i></a>
+                        <a href="#" class="social-icon"><i class="ri-linkedin-fill"></i></a>
+                    </div>
+                    
+                    <h5 class="fw-bold mb-3">Download Our App</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="app-download-btn">
+                            <i class="ri-google-play-fill app-icon"></i>
+                            <div>
+                                <div class="small">GET IT ON</div>
+                                <div class="fw-medium">Google Play</div>
+                            </div>
+                        </a>
+                        <a href="#" class="app-download-btn">
+                            <i class="ri-apple-fill app-icon"></i>
+                            <div>
+                                <div class="small">DOWNLOAD ON</div>
+                                <div class="fw-medium">App Store</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-top border-secondary pt-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <p class="text-secondary mb-0">&copy; 2025 Bus Ticket Booking. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center justify-content-md-end">
+                            <span class="text-secondary me-3">Payment Options:</span>
+                            <div class="d-flex gap-2">
+                                <div class="payment-icon"><i class="ri-visa-line text-primary"></i></div>
+                                <div class="payment-icon"><i class="ri-mastercard-line text-danger"></i></div>
+                                <div class="payment-icon"><i class="ri-paypal-line text-info"></i></div>
+                                <div class="payment-icon"><i class="ri-amazon-pay-line text-dark"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle for women booking
+            const womenBookingToggle = document.getElementById('womenBookingToggle');
+            if (womenBookingToggle) {
+                womenBookingToggle.addEventListener('change', function() {
+                    console.log('Women booking option:', this.checked ? 'enabled' : 'disabled');
+                });
+            }
+            
+            // Search button click
+            const searchButton = document.querySelector('.btn-primary');
+            if (searchButton) {
+                searchButton.addEventListener('click', function() {
+                    const fromInput = document.getElementById('from');
+                    const toInput = document.getElementById('to');
+                    
+                    if (!fromInput.value.trim()) {
+                        alert('Please enter departure city');
+                        return;
+                    }
+                    
+                    if (!toInput.value.trim()) {
+                        alert('Please enter destination city');
+                        return;
+                    }
+                    
+                    console.log('Searching buses from', fromInput.value, 'to', toInput.value);
+                    alert('Searching for buses...');
+                });
+            }
+            
+            // Tab switching
+            const tabLinks = document.querySelectorAll('.nav-pills .nav-link');
+            tabLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all tabs
+                    tabLinks.forEach(tab => {
+                        tab.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    console.log('Tab switched to:', this.textContent.trim());
+                });
+            });
+            
+            // Today/Tomorrow buttons
+            const todayBtn = document.querySelector('.btn-outline-secondary:first-of-type');
+            const tomorrowBtn = document.querySelector('.btn-outline-secondary:last-of-type');
+            const dateInput = document.getElementById('date');
+            
+            if (todayBtn && tomorrowBtn && dateInput) {
+                todayBtn.addEventListener('click', function() {
+                    const today = new Date();
+                    const dateStr = today.toISOString().split('T')[0];
+                    dateInput.value = dateStr;
+                });
+                
+                tomorrowBtn.addEventListener('click', function() {
+                    const tomorrow = new Date();
+                    tomorrow.setDate(tomorrow.getDate() + 1);
+                    const dateStr = tomorrow.toISOString().split('T')[0];
+                    dateInput.value = dateStr;
+                });
+            }
+        });
+    </script>
+</body>
+</html> -->

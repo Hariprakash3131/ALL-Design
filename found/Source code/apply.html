@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply Form</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    /* Add custom styles here */
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 style=" color: rgb(76, 155, 7) !important;">Oscar Apply Form</h2>
+    <form id="applyForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" class="form-control" id="age" placeholder="Enter your age" required>
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" class="form-control" id="mobile" placeholder="Enter your mobile number" required>
+      </div>
+      <div class="form-group">
+        <label for="10thmarks">10th Marks:</label>
+        <input type="number" class="form-control" id="10thmarks" placeholder="Enter your 10th marks" min="0" max="999" required>
+      </div>
+      <div class="form-group">
+        <label for="12thmarks">12th Marks:</label>
+        <input type="number" class="form-control" id="12thmarks" placeholder="Enter your 12th marks" min="0" max="999" required>
+      </div>
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea class="form-control" id="address" placeholder="Enter your address" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="pincode">Pin Code:</label>
+        <input type="text" class="form-control" id="pincode" placeholder="Enter your pin code" required>
+      </div>
+      <div class="form-group">
+        <label for="state">State:</label>
+        <input type="text" class="form-control" id="state" placeholder="Enter your state" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script>
+    // Add custom JavaScript here
+    document.getElementById("applyForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var tenthMarks = document.getElementById("10thmarks").value;
+      var twelfthMarks = document.getElementById("12thmarks").value;
+
+      if (tenthMarks.length > 3 || twelfthMarks.length >3 ) {
+        alert("Please enter only 3-digit numbers for 10th and 12th marks.");
+        return;
+      }
+
+      // If validation passes, you can proceed with form submission
+      // For example, you can collect form data and send it to a server using AJAX
+    });
+  </script>
+</body>
+</html>

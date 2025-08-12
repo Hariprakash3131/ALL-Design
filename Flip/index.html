@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flipkart - Online Shopping India</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f1f3f6;
+      color: #212121;
+      line-height: 1.6;
+    }
+
+    .header {
+      background-color: #ffffff;
+      padding: 12px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .header.scrolled {
+      padding: 8px 5%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .explore-plus {
+      font-size: 14px;
+      color: #ffe500;
+      margin-left: 5px;
+      font-style: italic;
+      display: flex;
+      align-items: center;
+    }
+
+    .explore-plus span {
+      font-weight: bold;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 20px;
+      max-width: 500px;
+      min-width: 200px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 24px;
+      font-size: 14px;
+      box-shadow: 0 2px 4px rgba(101, 70, 70, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .search-bar input:focus {
+      outline: none;
+      box-shadow: 0 2px 8px rgba(40, 116, 240, 0.2);
+    }
+
+    .search-bar .search-icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+      font-size: 16px;
+      pointer-events: none;
+      transition: color 0.3s ease;
+    }
+
+    .search-bar input:focus + .search-icon {
+      color: #2874f0;
+    }
+
+    .user-actions {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      color: black;
+    }
+
+    .user-actions div {
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .user-actions div:hover {
+      color: #2874f0;
+      transform: translateY(-2px);
+    }
+
+    .user-actions i {
+      margin-right: 8px;
+      color: #2874f0;
+      transition: transform 0.3s ease;
+    }
+
+    .user-actions div:hover i {
+      transform: scale(1.1);
+    }
+
+    .login-btn {
+      background-color: white;
+      color: #2874f0;
+      padding: 8px 40px;
+      border: none;
+      border-radius: 2px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .login-btn:hover {
+      background-color: #2874f0;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(40, 116, 240, 0.3);
+    }
+
+    .nav-container {
+      background-color: white;
+      padding: 15px 5%;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 60px;
+      z-index: 99;
+      transition: all 0.3s ease;
+    }
+
+    .nav-container.scrolled {
+      top: 52px;
+    }
+
+    .categories {
+      display: flex;
+      overflow-x: auto;
+      gap: 30px;
+      -webkit-overflow-scrolling: touch;
+      justify-content: center;
+      padding-bottom: 10px;
+    }
+
+    .categories::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    .categories::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .categories::-webkit-scrollbar-thumb {
+      background: #2874f0;
+      border-radius: 10px;
+    }
+
+    .category {
+      min-width: 80px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+    }
+
+    .category::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 3px;
+      background-color: #2874f0;
+      transition: width 0.3s ease;
+    }
+
+    .category:hover::after {
+      width: 50%;
+    }
+
+    .category img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .category:hover img {
+      transform: scale(1.1);
+    }
+
+    .category p {
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .category:hover p {
+      color: #2874f0;
+    }
+
+    .main-content {
+      padding: 20px 5%;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .section:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transform: translateY(-3px);
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #2874f0;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: #2874f0;
+      border-radius: 3px;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      margin: 15px 0 10px;
+      color: #212121;
+    }
+
+    .section-text {
+      margin-bottom: 15px;
+      color: #140f0f;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #388e3c;
+    }
+
+    /* Banner Carousel Styles */
+    .banner-container {
+      width: 100%;
+      background: #f1f3f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      animation: slideIn 0.8s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .carousel {
+      width: 96%;
+      max-width: 1600px;
+      height: 270px;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+      height: 100%;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 5s ease;
+    }
+
+    .carousel-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .carousel-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.7);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .carousel:hover .carousel-control {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .carousel-control:hover {
+      background-color: white;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .carousel-control.prev {
+      left: 10px;
+    }
+
+    .carousel-control.next {
+      right: 10px;
+    }
+
+    .carousel-indicators {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .indicator:hover {
+      transform: scale(1.2);
+    }
+
+    .indicator.active {
+      background-color: white;
+      width: 25px;
+      border-radius: 5px;
+    }
+
+    /* Product Grid Styles */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding: 12px;
+      text-align: center;
+    }
+
+    .product-title {
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #212121;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .product-price {
+      font-weight: bold;
+      color: #388e3c;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #388e3c;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Footer Styles */
+    .footer {
+      background-color: #172337;
+      color: white;
+      padding: 40px 5%;
+      margin-top: 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-column h3 {
+      font-size: 16px;
+      margin-bottom: 15px;
+      color: #878787;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: #878787;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      color: #2874f0;
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #454d5e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 20px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #2874f0;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .header.scrolled {
+        padding: 8px 5%;
+      }
+
+      .search-bar {
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      .user-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .categories {
+        gap: 15px;
+      }
+
+      .category {
+        min-width: 60px;
+      }
+
+      .category img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .carousel {
+        height: 180px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+
+      .product-image {
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 2%;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .explore-plus {
+        font-size: 12px;
+      }
+
+      .search-bar input {
+        font-size: 12px;
+        padding: 10px 10px;
+      }
+
+      .user-actions {
+        gap: 10px;
+        font-size: 14px;
+        flex-wrap: wrap;
+      }
+
+      .nav-container {
+        padding: 10px 2%;
+      }
+
+      .categories {
+        gap: 10px;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 5px;
+      }
+
+      .category {
+        min-width: 50px;
+        max-width: 70px;
+      }
+
+      .category img {
+        width: 36px;
+        height: 36px;
+      }
+
+      .category p {
+        font-size: 12px;
+      }
+
+      .main-content {
+        padding: 10px 2%;
+      }
+
+      .section {
+        padding: 12px;
+      }
+
+      .section-title {
+        font-size: 18px;
+      }
+
+      .section-subtitle {
+        font-size: 15px;
+      }
+
+      .carousel {
+        height: 120px;
+      }
+
+      .carousel-control {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+      }
+
+      .product-image {
+        height: 140px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .categories {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+        overflow-x: visible;
+      }
+
+      .category {
+        min-width: 100%;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-align: left;
+      }
+
+      .category img {
+        width: 32px;
+        height: 32px;
+      }
+
+      .category p {
+        margin-top: 0;
+      }
+
+      .carousel {
+        height: 100px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Ripple Effect Styles */
+    .ripple {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: rgba(40, 116, 240, 0.2);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: scale(0);
+      animation: ripple-effect 0.6s linear;
+      z-index: 2;
+    }
+
+    @keyframes ripple-effect {
+      to {
+        transform: scale(2.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo">
+      <span style="color:#2874f0;font-style:italic;font-weight:bold;">Flipkart</span>
+      <span class="explore-plus">Explore <span>Plus</span> ✨</span>
+    </div>
+    
+    <div class="search-bar">
+      <input type="text" placeholder="Search for Products, Brands and More">
+      <i class="fas fa-search search-icon"></i>
+    </div>
+    
+    <div class="user-actions">
+      <div><i class="fas fa-user"></i> Login</div>
+      <div><i class="fas fa-store"></i> Become a Seller</div>
+      <div><i class="fas fa-ellipsis-h"></i> More</div>
+      <div><i class="fas fa-shopping-cart"></i> Cart</div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <div class="nav-container">
+    <div class="categories">
+      <div class="category">
+        <img src="https://rukminim2.flixcart.com/flap/128/128/image/29327f40e9c4d26b.png" alt="Grocery">
+        <p>Grocery</p>
+      </div>
+      <div class="category">
+        <img src="https://rukminim2.flixcart.com/flap/128/128/image/22fddf3c7da4c4f4.png" alt="Mobiles">
+        <p>Mobiles</p>
+      </div>
+      <div class="category">
+        <img src="https://rukminim2.flixcart.com/flap/128/128/image/c12afc017e6f24cb.png" alt="Fashion">
+        <p>Fashion</p>
+      </div>
+      <div class="category">
+        <img src="https://rukminim2.flixcart.com/flap/128/128/image/69c6589653afdb9a.png" alt="Electronics">
+        <p>Electronics</p>
+      </div>
+      <div class="category">
+        <img src="https://rukminim2.flixcart.com/flap/128/128/image/ab7e2b022a4587dd.jpg" alt="Home">
+        <p>Home</p>
+      </div>
+      <div class="category">
+        <img src="https://rukminim2.flixcart.com/flap/128/128/image/0ff199d1bd27eb98.png" alt="Appliances">
+        <p>Appliances</p>
+      </div>
+      <div class="category">
+        <img src="https://rukminim2.flixcart.com/flap/128/128/image/71050627a56b4693.png" alt="Travel">
+        <p>Travel</p>
+      </div>
+      <div class="category">
+        <img src="https://rukminim2.flixcart.com/flap/128/128/image/dff3f7adcf3a90c6.png" alt="Toys">
+        <p>Toys</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Banner/Carousel Section -->
+  <div class="banner-container">
+    <div class="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item">
+          <img src="image/1213e102fd00e225.webp" alt="Banner 1">
+        </div>
+        <div class="carousel-item">
+          <img src="image/8c37ebdcad266b0e.webp" alt="Banner 2">
+        </div>
+        <div class="carousel-item">
+          <img src="image/d4112ad38bc41def.webp" alt="Banner 3">
+        </div>
+        <div class="carousel-item">
+          <img src="image/11980ec333f6aa03.webp" alt="Banner 4">
+        </div>
+      </div>
+      <button class="carousel-control prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="carousel-control next"><i class="fas fa-chevron-right"></i></button>
+      <div class="carousel-indicators">
+        <div class="indicator active"></div>
+        <div class="indicator"></div>
+        <div class="indicator"></div>
+        <div class="indicator"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 499 only -->
+  <div class="main-content">
+    <div class="section">
+      <h2 class="section-title">Best Deals Under ₹499</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="discount-badge">60% OFF</div>
+          <img src="image/-original-imah77ntswmmb49w.webp" alt="Product 1" class="product-image">
+          <div class="product-info">
+            <div class="product-title">Printed Saree</div>
+            <div class="product-price">₹399</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="discount-badge">55% OFF</div>
+          <img src="image/free-3991s495-samah-unstitched-original-imah7fy848gvmzf6.webp" alt="Product 2" class="product-image">
+          <div class="product-info">
+            <div class="product-title">Unstitched Dress</div>
+            <div class="product-price">₹449</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="discount-badge">70% OFF</div>
+          <img src="image/-original-imaguzaajncp3ggb.webp" alt="Product 3" class="product-image">
+          <div class="product-info">
+            <div class="product-title">Trendy Kurti</div>
+            <div class="product-price">₹199</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="discount-badge">65% OFF</div>
+          <img src="image/8-dark-pink-fws-15-8-footox-dark-pink-original-imagqf6veu6rwyvy.webp" alt="Product 4" class="product-image">
+          <div class="product-info">
+            <div class="product-title">Women's Sandals</div>
+            <div class="product-price">₹499</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="discount-badge">50% OFF</div>
+          <img src="image/6-gd602-39-picktoes-pink-original-imah3j5yf6hqamsg.webp" alt="Product 5" class="product-image">
+          <div class="product-info">
+            <div class="product-title">Ankle Socks (Pack of 6)</div>
+            <div class="product-price">₹249</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="discount-badge">60% OFF</div>
+          <img src="image/6-jmd-507-org-6-6-visiter-orange-original-imah879mhqv8pjyc.webp" alt="Product 6" class="product-image">
+          <div class="product-info">
+            <div class="product-title">Men's Digital Watch</div>
+            <div class="product-price">₹399</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Section -->
+    <div class="section">
+      <h2 class="section-title">Trending in Electronics</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="discount-badge">25% OFF</div>
+          <img src="image/-original-imah3am86gzrvr6g.webp" alt="Product 1" class="product-image">
+          <div class="product-info">
+            <div class="product-title">Bluetooth Headphones</div>
+            <div class="product-price">₹1,299</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="discount-badge">30% OFF</div>
+          <img src="image/-original-imagx9sjyekzddgk-1.webp" alt="Product 2" class="product-image">
+          <div class="product-info">
+            <div class="product-title">Smartphone</div>
+            <div class="product-price">₹12,999</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="discount-badge">20% OFF</div>
+          <img src="image/nb119-genius-upto-60-hours-playtime-dual-pairing-fast-charging-original-imahbw9v4qpydgtw.webp" alt="Product 3" class="product-image">
+          <div class="product-info">
+            <div class="product-title">Wireless Earbuds</div>
+            <div class="product-price">₹1,599</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="discount-badge">15% OFF</div>
+          <img src="image/-original-imah6t3mn8tmebyg.webp" alt="Product 4" class="product-image">
+          <div class="product-info">
+            <div class="product-title">Power Bank</div>
+            <div class="product-price">₹849</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="discount-badge">18% OFF</div>
+          <img src="image/-original-imaha6btcgqdqy5e.webp" alt="Product 5" class="product-image">
+          <div class="product-info">
+            <div class="product-title">Smart Watch</div>
+            <div class="product-price">₹1,299</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="discount-badge">22% OFF</div>
+          <img src="image/nb126-aster-v5-4-upto-50hr-playtime-45ms-latency-fast-charging-original-imaha8efgquk7afd-1.webp" alt="Product 6" class="product-image">
+          <div class="product-info">
+            <div class="product-title">Gaming Earbuds</div>
+            <div class="product-price">₹1,499</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h3>ABOUT</h3>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Flipkart Stories</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>HELP</h3>
+        <ul>
+          <li><a href="#">Payments</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Cancellation & Returns</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Report Infringement</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>POLICY</h3>
+        <ul>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Terms Of Use</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>SOCIAL</h3>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 Flipkart. All rights reserved.</div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Header scroll effect
+      const header = document.querySelector('.header');
+      const navContainer = document.querySelector('.nav-container');
+      
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+          navContainer.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+          navContainer.classList.remove('scrolled');
+        }
+      });
+
+      // Category hover effect
+      const categories = document.querySelectorAll('.category');
+      categories.forEach(category => {
+        category.addEventListener('mouseover', () => {
+          category.style.transform = 'translateY(-5px)';
+        });
+        category.addEventListener('mouseout', () => {
+          category.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Carousel functionality
+      const carousel = document.querySelector('.carousel-inner');
+      const items = document.querySelectorAll('.carousel-item');
+      const prevBtn = document.querySelector('.prev');
+      const nextBtn = document.querySelector('.next');
+      const indicators = document.querySelectorAll('.indicator');
+      
+      let currentIndex = 0;
+      const itemCount = items.length;
+      
+      function updateCarousel() {
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+          if (index === currentIndex) {
+            indicator.classList.add('active');
+          } else {
+            indicator.classList.remove('active');
+          }
+        });
+      }
+      
+      // Next button click
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % itemCount;
+        updateCarousel();
+      });
+      
+      // Previous button click
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+        updateCarousel();
+      });
+      
+      // Indicator clicks
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          currentIndex = index;
+          updateCarousel();
+        });
+      });
+      
+      // Auto-advance carousel
+      let interval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % itemCount;
+        updateCarousel();
+      }, 5000);
+      
+      // Pause on hover
+      const carouselContainer = document.querySelector('.carousel');
+      carouselContainer.addEventListener('mouseenter', () => {
+        clearInterval(interval);
+      });
+      
+      carouselContainer.addEventListener('mouseleave', () => {
+        interval = setInterval(() => {
+          currentIndex = (currentIndex + 1) % itemCount;
+          updateCarousel();
+        }, 5000);
+      });
+      
+      // Touch support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      carouselContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+      
+      carouselContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+      
+      function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+          // Swipe left - next
+          currentIndex = (currentIndex + 1) % itemCount;
+          updateCarousel();
+        }
+        
+        if (touchEndX > touchStartX + 50) {
+          // Swipe right - previous
+          currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+          updateCarousel();
+        }
+      }
+
+      // Product card animations
+      const productCards = document.querySelectorAll('.product-card');
+      productCards.forEach((card, index) => {
+        // Delay animation for each card
+        card.style.animationDelay = `${index * 0.1}s`;
+
+        // Add ripple effect on click
+        card.addEventListener('click', function(e) {
+          const rect = this.getBoundingClientRect();
+          const ripple = document.createElement('span');
+          ripple.className = 'ripple';
+          ripple.style.left = `${e.clientX - rect.left}px`;
+          ripple.style.top = `${e.clientY - rect.top}px`;
+          this.appendChild(ripple);
+          setTimeout(() => ripple.remove(), 600);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

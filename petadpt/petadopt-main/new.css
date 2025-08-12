@@ -1,0 +1,229 @@
+.navbar-brand img {
+    border-radius: 50%; /* Optional: Rounded logo */
+  }
+  
+  .navbar-nav .nav-link {
+    margin-right: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #007bff; /* Highlight color */
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-primary i {
+    font-size: 1.2rem;
+  }
+  .carousel-item img {
+    height: 500px; /* Adjust based on your preference */
+    object-fit: cover; /* Ensures the image covers the area */
+  }
+  
+  .carousel-caption h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  .carousel-caption p {
+    color: #ddd;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  }
+  .card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card img {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .card .card-title {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+  
+  .card .card-text {
+    color: #666;
+    font-size: 1rem;
+  }
+  
+  .animated-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .animated-card:hover img {
+    transform: scale(1.1);
+  }
+  /* General container styling */
+.text-container {
+    font-family: 'Roboto', sans-serif; /* Modern and clean font */
+  }
+  
+  /* Heading styles with animation */
+  .animated-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #f9f2f0; /* Bright orange color */
+    text-transform: uppercase;
+    animation: fadeInMove 1s ease-out;
+  }
+  
+  /* Subheading styles with animation */
+  .animated-subheading {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #0ac69a; /* Dark gray for contrast */
+    display: inline-block;
+    animation: fadeInColor 1.5s ease-in-out;
+  }
+  
+  /* Heading animation */
+  @keyframes fadeInMove {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Subheading animation */
+  @keyframes fadeInColor {
+    0% {
+      opacity: 0;
+      color: #ffcccc; /* Light faded color */
+    }
+    100% {
+      opacity: 1;
+      color: #333; /* Final dark color */
+    }
+  }
+
+  /* Footer styles */
+.footer {
+    background-color: #333;
+    padding-bottom: 20px;
+  }
+  
+  .footer-heading {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ff4500;
+  }
+  
+  .footer p,
+  .footer label {
+    font-size: 1rem;
+    color: #ddd;
+  }
+  
+  .footer .form-control {
+    border: 1px solid #555;
+    background-color: #444;
+    color: #fff;
+  }
+  
+  .footer .form-control:focus {
+    border-color: #ff4500;
+    box-shadow: 0 0 5px #ff4500;
+  }
+  
+  .footer .btn-primary {
+    background-color: #ff4500;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .footer .btn-primary:hover {
+    background-color: #ff6347;
+    transform: scale(1.05);
+  }
+  
+  /* Social Media Icons */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .social-icons .icon-link {
+    color: #ff4500;
+    font-size: 2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .social-icons .icon-link:hover {
+    color: #ff6347;
+    transform: scale(1.1);
+  }
+  
+  /* Animation for footer elements */
+  .footer-heading,
+  .footer p,
+  .footer .form-control,
+  .footer .btn-primary,
+  .social-icons .icon-link {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+  }
+  
+  .footer-heading {
+    animation-delay: 0.2s;
+  }
+  
+  .footer p {
+    animation-delay: 0.4s;
+  }
+  
+  .footer .form-control,
+  .footer .btn-primary {
+    animation-delay: 0.6s;
+  }
+  
+  .social-icons .icon-link {
+    animation-delay: 0.8s;
+  }
+  
+  /* Fade-in-up animation */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  
+  
+  
+  

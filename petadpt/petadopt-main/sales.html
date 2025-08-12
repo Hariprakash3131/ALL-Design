@@ -1,0 +1,2105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My Webcrumbs Plugin</title>
+        <style>
+            @import url(https://fonts.googleapis.com/css2?family=Lato&display=swap);
+            @import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+            @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
+
+            /*! tailwindcss v3.4.11 | MIT License | https://tailwindcss.com*/
+            *,
+            :after,
+            :before {
+                border: 0 solid #e5e7eb;
+                box-sizing: border-box;
+            }
+            :after,
+            :before {
+                --tw-content: "";
+            }
+            :host,
+            html {
+                line-height: 1.5;
+                -webkit-text-size-adjust: 100%;
+                font-family:
+                    Open Sans,
+                    ui-sans-serif,
+                    system-ui,
+                    sans-serif,
+                    Apple Color Emoji,
+                    Segoe UI Emoji,
+                    Segoe UI Symbol,
+                    Noto Color Emoji;
+                font-feature-settings: normal;
+                font-variation-settings: normal;
+                -moz-tab-size: 4;
+                tab-size: 4;
+                -webkit-tap-highlight-color: transparent;
+            }
+            body {
+                line-height: inherit;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                background: linear-gradient(135deg, #ffffff, #d4d4d4);
+            }
+            hr {
+                border-top-width: 1px;
+                color: inherit;
+                height: 0;
+            }
+            abbr:where([title]) {
+                text-decoration: underline dotted;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-size: inherit;
+                font-weight: inherit;
+                line-height: 1.2;
+            }
+            a {
+                color: inherit;
+                text-decoration: inherit;
+            }
+            b,
+            strong {
+                font-weight: bolder;
+            }
+            code,
+            kbd,
+            pre,
+            samp {
+                font-family:
+                    ui-monospace,
+                    SFMono-Regular,
+                    Menlo,
+                    Monaco,
+                    Consolas,
+                    Liberation Mono,
+                    Courier New,
+                    monospace;
+                font-feature-settings: normal;
+                font-size: 1em;
+                font-variation-settings: normal;
+            }
+            small {
+                font-size: 80%;
+            }
+            sub,
+            sup {
+                font-size: 75%;
+                line-height: 0;
+                position: relative;
+                vertical-align: baseline;
+            }
+            sub {
+                bottom: -0.25em;
+            }
+            sup {
+                top: -0.5em;
+            }
+            table {
+                border-collapse: collapse;
+                border-color: inherit;
+                text-indent: 0;
+            }
+            button,
+            input,
+            optgroup,
+            select,
+            textarea {
+                color: inherit;
+                font-family: inherit;
+                font-feature-settings: inherit;
+                font-size: 100%;
+                font-variation-settings: inherit;
+                font-weight: inherit;
+                letter-spacing: inherit;
+                line-height: inherit;
+                margin: 0;
+                padding: 0;
+            }
+            button,
+            select {
+                text-transform: none;
+            }
+            button,
+            input:where([type="button"]),
+            input:where([type="reset"]),
+            input:where([type="submit"]) {
+                -webkit-appearance: button;
+                background-color: transparent;
+                background-image: none;
+            }
+            :-moz-focusring {
+                outline: auto;
+            }
+            :-moz-ui-invalid {
+                box-shadow: none;
+            }
+            progress {
+                vertical-align: baseline;
+            }
+            ::-webkit-inner-spin-button,
+            ::-webkit-outer-spin-button {
+                height: auto;
+            }
+            [type="search"] {
+                -webkit-appearance: textfield;
+                outline-offset: -2px;
+            }
+            ::-webkit-search-decoration {
+                -webkit-appearance: none;
+            }
+            ::-webkit-file-upload-button {
+                -webkit-appearance: button;
+                font: inherit;
+            }
+            summary {
+                display: list-item;
+            }
+            blockquote,
+            dd,
+            dl,
+            figure,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            hr,
+            p,
+            pre {
+                margin: 0;
+            }
+            fieldset {
+                margin: 0;
+            }
+            fieldset,
+            legend {
+                padding: 0;
+            }
+            menu,
+            ol,
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            dialog {
+                padding: 0;
+            }
+            textarea {
+                resize: vertical;
+            }
+            input::placeholder,
+            textarea::placeholder {
+                color: #9ca3af;
+                opacity: 1;
+            }
+            [role="button"],
+            button {
+                cursor: pointer;
+            }
+            :disabled {
+                cursor: default;
+            }
+            audio,
+            canvas,
+            embed,
+            iframe,
+            img,
+            object,
+            svg,
+            video {
+                display: block;
+                vertical-align: middle;
+            }
+            img,
+            video {
+                height: auto;
+                max-width: 100%;
+            }
+            [hidden] {
+                display: none;
+            }
+            *,
+            :after,
+            :before {
+                --tw-border-spacing-x: 0;
+                --tw-border-spacing-y: 0;
+                --tw-translate-x: 0;
+                --tw-translate-y: 0;
+                --tw-rotate: 0;
+                --tw-skew-x: 0;
+                --tw-skew-y: 0;
+                --tw-scale-x: 1;
+                --tw-scale-y: 1;
+                --tw-pan-x: ;
+                --tw-pan-y: ;
+                --tw-pinch-zoom: ;
+                --tw-scroll-snap-strictness: proximity;
+                --tw-gradient-from-position: ;
+                --tw-gradient-via-position: ;
+                --tw-gradient-to-position: ;
+                --tw-ordinal: ;
+                --tw-slashed-zero: ;
+                --tw-numeric-figure: ;
+                --tw-numeric-spacing: ;
+                --tw-numeric-fraction: ;
+                --tw-ring-inset: ;
+                --tw-ring-offset-width: 0px;
+                --tw-ring-offset-color: #fff;
+                --tw-ring-color: rgba(59, 130, 246, 0.5);
+                --tw-ring-offset-shadow: 0 0 #0000;
+                --tw-ring-shadow: 0 0 #0000;
+                --tw-shadow: 0 0 #0000;
+                --tw-shadow-colored: 0 0 #0000;
+                --tw-blur: ;
+                --tw-brightness: ;
+                --tw-contrast: ;
+                --tw-grayscale: ;
+                --tw-hue-rotate: ;
+                --tw-invert: ;
+                --tw-saturate: ;
+                --tw-sepia: ;
+                --tw-drop-shadow: ;
+                --tw-backdrop-blur: ;
+                --tw-backdrop-brightness: ;
+                --tw-backdrop-contrast: ;
+                --tw-backdrop-grayscale: ;
+                --tw-backdrop-hue-rotate: ;
+                --tw-backdrop-invert: ;
+                --tw-backdrop-opacity: ;
+                --tw-backdrop-saturate: ;
+                --tw-backdrop-sepia: ;
+                --tw-contain-size: ;
+                --tw-contain-layout: ;
+                --tw-contain-paint: ;
+                --tw-contain-style: ;
+            }
+            ::backdrop {
+                --tw-border-spacing-x: 0;
+                --tw-border-spacing-y: 0;
+                --tw-translate-x: 0;
+                --tw-translate-y: 0;
+                --tw-rotate: 0;
+                --tw-skew-x: 0;
+                --tw-skew-y: 0;
+                --tw-scale-x: 1;
+                --tw-scale-y: 1;
+                --tw-pan-x: ;
+                --tw-pan-y: ;
+                --tw-pinch-zoom: ;
+                --tw-scroll-snap-strictness: proximity;
+                --tw-gradient-from-position: ;
+                --tw-gradient-via-position: ;
+                --tw-gradient-to-position: ;
+                --tw-ordinal: ;
+                --tw-slashed-zero: ;
+                --tw-numeric-figure: ;
+                --tw-numeric-spacing: ;
+                --tw-numeric-fraction: ;
+                --tw-ring-inset: ;
+                --tw-ring-offset-width: 0px;
+                --tw-ring-offset-color: #fff;
+                --tw-ring-color: rgba(59, 130, 246, 0.5);
+                --tw-ring-offset-shadow: 0 0 #0000;
+                --tw-ring-shadow: 0 0 #0000;
+                --tw-shadow: 0 0 #0000;
+                --tw-shadow-colored: 0 0 #0000;
+                --tw-blur: ;
+                --tw-brightness: ;
+                --tw-contrast: ;
+                --tw-grayscale: ;
+                --tw-hue-rotate: ;
+                --tw-invert: ;
+                --tw-saturate: ;
+                --tw-sepia: ;
+                --tw-drop-shadow: ;
+                --tw-backdrop-blur: ;
+                --tw-backdrop-brightness: ;
+                --tw-backdrop-contrast: ;
+                --tw-backdrop-grayscale: ;
+                --tw-backdrop-hue-rotate: ;
+                --tw-backdrop-invert: ;
+                --tw-backdrop-opacity: ;
+                --tw-backdrop-saturate: ;
+                --tw-backdrop-sepia: ;
+                --tw-contain-size: ;
+                --tw-contain-layout: ;
+                --tw-contain-paint: ;
+                --tw-contain-style: ;
+            }
+            .container {
+                width: 100%;
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 0 clamp(1rem, 5vw, 2rem);
+            }
+            @media (min-width: 640px) {
+                .container {
+                    max-width: 640px;
+                }
+            }
+            @media (min-width: 768px) {
+                .container {
+                    max-width: 768px;
+                }
+            }
+            @media (min-width: 1024px) {
+                .container {
+                    max-width: 1024px;
+                }
+            }
+            @media (min-width: 1280px) {
+                .container {
+                    max-width: 1280px;
+                }
+            }
+            @media (min-width: 1536px) {
+                .container {
+                    max-width: 1536px;
+                }
+            }
+            #webcrumbs .absolute {
+                position: absolute;
+            }
+            #webcrumbs .relative {
+                position: relative;
+            }
+            #webcrumbs .-bottom-1 {
+                bottom: -4px;
+            }
+            #webcrumbs .-right-6 {
+                right: -24px;
+            }
+            #webcrumbs .-top-1 {
+                top: -4px;
+            }
+            #webcrumbs .left-0 {
+                left: 0;
+            }
+            #webcrumbs .right-0 {
+                right: 0;
+            }
+            #webcrumbs .right-2 {
+                right: 8px;
+            }
+            #webcrumbs .top-10 {
+                top: 40px;
+            }
+            #webcrumbs .top-2 {
+                top: 8px;
+            }
+            #webcrumbs .z-50 {
+                z-index: 50;
+            }
+            #webcrumbs .mx-auto {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #webcrumbs .mb-10 {
+                margin-bottom: 40px;
+            }
+            #webcrumbs .mb-12 {
+                margin-bottom: 48px;
+            }
+            #webcrumbs .mb-2 {
+                margin-bottom: 8px;
+            }
+            #webcrumbs .mb-3 {
+                margin-bottom: 12px;
+            }
+            #webcrumbs .mb-4 {
+                margin-bottom: 16px;
+            }
+            #webcrumbs .mb-8 {
+                margin-bottom: 32px;
+            }
+            #webcrumbs .ml-1 {
+                margin-left: 4px;
+            }
+            #webcrumbs .ml-3 {
+                margin-left: 12px;
+            }
+            #webcrumbs .mr-1 {
+                margin-right: 4px;
+            }
+            #webcrumbs .mr-2 {
+                margin-right: 8px;
+            }
+            #webcrumbs .mt-2 {
+                margin-top: 8px;
+            }
+            #webcrumbs .mt-3 {
+                margin-top: 12px;
+            }
+            #webcrumbs .line-clamp-2 {
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+            }
+            #webcrumbs .block {
+                display: block;
+            }
+            #webcrumbs .flex {
+                display: flex;
+            }
+            #webcrumbs .inline-flex {
+                display: inline-flex;
+            }
+            #webcrumbs .grid {
+                display: grid;
+                gap: clamp(1rem, 3vw, 2rem);
+            }
+            #webcrumbs .hidden {
+                display: none;
+            }
+            #webcrumbs .h-0\.5 {
+                height: 2px;
+            }
+            #webcrumbs .h-16 {
+                height: 64px;
+            }
+            #webcrumbs .h-48 {
+                height: 192px;
+            }
+            #webcrumbs .h-5 {
+                height: 20px;
+            }
+            #webcrumbs .h-8 {
+                height: 32px;
+            }
+            #webcrumbs .h-full {
+                height: 100%;
+            }
+            #webcrumbs .w-0 {
+                width: 0;
+            }
+            #webcrumbs .w-12 {
+                width: 48px;
+            }
+            #webcrumbs .w-16 {
+                width: 64px;
+            }
+            #webcrumbs .w-48 {
+                width: 192px;
+            }
+            #webcrumbs .w-5 {
+                width: 20px;
+            }
+            #webcrumbs .w-8 {
+                width: 32px;
+            }
+            #webcrumbs .w-\[1280px\] {
+                width: 1280px;
+            }
+            #webcrumbs .w-full {
+                width: 100%;
+            }
+            #webcrumbs .transform {
+                transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate))
+                    skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+            }
+            @keyframes pulse {
+                50% {
+                    opacity: 0.5;
+                }
+            }
+            #webcrumbs .animate-pulse {
+                animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            }
+            #webcrumbs .cursor-pointer {
+                cursor: pointer;
+            }
+            #webcrumbs .list-none {
+                list-style-type: none;
+            }
+            #webcrumbs .grid-cols-1 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+            #webcrumbs .flex-row {
+                flex-direction: row;
+            }
+            #webcrumbs .flex-col {
+                flex-direction: column;
+            }
+            #webcrumbs .flex-wrap {
+                flex-wrap: wrap;
+            }
+            #webcrumbs .items-center {
+                align-items: center;
+            }
+            #webcrumbs .justify-center {
+                justify-content: center;
+            }
+            #webcrumbs .justify-between {
+                justify-content: space-between;
+            }
+            #webcrumbs .gap-1 {
+                gap: 4px;
+            }
+            #webcrumbs .gap-2 {
+                gap: 8px;
+            }
+            #webcrumbs .gap-4 {
+                gap: 16px;
+            }
+            #webcrumbs .gap-6 {
+                gap: 24px;
+            }
+            #webcrumbs :is(.space-x-10 > :not([hidden]) ~ :not([hidden])) {
+                --tw-space-x-reverse: 0;
+                margin-left: calc(40px * (1 - var(--tw-space-x-reverse)));
+                margin-right: calc(40px * var(--tw-space-x-reverse));
+            }
+            #webcrumbs :is(.space-x-3 > :not([hidden]) ~ :not([hidden])) {
+                --tw-space-x-reverse: 0;
+                margin-left: calc(12px * (1 - var(--tw-space-x-reverse)));
+                margin-right: calc(12px * var(--tw-space-x-reverse));
+            }
+            #webcrumbs :is(.space-x-4 > :not([hidden]) ~ :not([hidden])) {
+                --tw-space-x-reverse: 0;
+                margin-left: calc(16px * (1 - var(--tw-space-x-reverse)));
+                margin-right: calc(16px * var(--tw-space-x-reverse));
+            }
+            #webcrumbs :is(.space-x-8 > :not([hidden]) ~ :not([hidden])) {
+                --tw-space-x-reverse: 0;
+                margin-left: calc(32px * (1 - var(--tw-space-x-reverse)));
+                margin-right: calc(32px * var(--tw-space-x-reverse));
+            }
+            #webcrumbs :is(.space-y-2 > :not([hidden]) ~ :not([hidden])) {
+                --tw-space-y-reverse: 0;
+                margin-bottom: calc(8px * var(--tw-space-y-reverse));
+                margin-top: calc(8px * (1 - var(--tw-space-y-reverse)));
+            }
+            #webcrumbs .overflow-hidden {
+                overflow: hidden;
+            }
+            #webcrumbs .rounded-full {
+                border-radius: 9999px;
+            }
+            #webcrumbs .rounded-lg {
+                border-radius: 24px;
+            }
+            #webcrumbs .rounded-md {
+                border-radius: 18px;
+            }
+            #webcrumbs .rounded-xl {
+                border-radius: 36px;
+            }
+            #webcrumbs .rounded-b-xl {
+                border-bottom-left-radius: 36px;
+                border-bottom-right-radius: 36px;
+            }
+            #webcrumbs .border {
+                border-width: 1px;
+            }
+            #webcrumbs .border-2 {
+                border-width: 2px;
+            }
+            #webcrumbs .border-none {
+                border-style: none;
+            }
+            #webcrumbs .border-gray-300 {
+                --tw-border-opacity: 1;
+                border-color: rgb(209 213 219 / var(--tw-border-opacity));
+            }
+            #webcrumbs .border-white {
+                --tw-border-opacity: 1;
+                border-color: rgb(255 255 255 / var(--tw-border-opacity));
+            }
+            #webcrumbs .bg-blue-500 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .bg-emerald-100 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(209 250 229 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .bg-emerald-500 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(16 185 129 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .bg-emerald-600 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(5 150 105 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .bg-emerald-700 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(4 120 87 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .bg-gray-100 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .bg-gray-50 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .bg-indigo-500 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(99 102 241 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .bg-primary-600 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(99 27 255 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .bg-red-500 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .bg-white {
+                --tw-bg-opacity: 1;
+                background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .bg-yellow-500 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .bg-gradient-to-r {
+                background-image: linear-gradient(to right, var(--tw-gradient-stops));
+            }
+            #webcrumbs .from-emerald-50 {
+                --tw-gradient-from: #ecfdf5 var(--tw-gradient-from-position);
+                --tw-gradient-to: rgba(236, 253, 245, 0) var(--tw-gradient-to-position);
+                --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+            }
+            #webcrumbs .from-teal-500 {
+                --tw-gradient-from: #14b8a6 var(--tw-gradient-from-position);
+                --tw-gradient-to: rgba(20, 184, 166, 0) var(--tw-gradient-to-position);
+                --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+            }
+            #webcrumbs .to-emerald-600 {
+                --tw-gradient-to: #059669 var(--tw-gradient-to-position);
+            }
+            #webcrumbs .to-teal-50 {
+                --tw-gradient-to: #f0fdfa var(--tw-gradient-to-position);
+            }
+            #webcrumbs .object-cover {
+                object-fit: cover;
+            }
+            #webcrumbs .p-4 {
+                padding: 16px;
+            }
+            #webcrumbs .p-5 {
+                padding: 20px;
+            }
+            #webcrumbs .p-6 {
+                padding: 24px;
+            }
+            #webcrumbs .px-2 {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            #webcrumbs .px-3 {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+            #webcrumbs .px-4 {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+            #webcrumbs .px-6 {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+            #webcrumbs .py-1 {
+                padding-bottom: 4px;
+                padding-top: 4px;
+            }
+            #webcrumbs .py-2 {
+                padding-bottom: 8px;
+                padding-top: 8px;
+            }
+            #webcrumbs .py-3 {
+                padding-bottom: 12px;
+                padding-top: 12px;
+            }
+            #webcrumbs .text-center {
+                text-align: center;
+            }
+            #webcrumbs .align-middle {
+                vertical-align: middle;
+            }
+            #webcrumbs .font-sans {
+                font-family:
+                    Open Sans,
+                    ui-sans-serif,
+                    system-ui,
+                    sans-serif,
+                    Apple Color Emoji,
+                    Segoe UI Emoji,
+                    Segoe UI Symbol,
+                    Noto Color Emoji;
+            }
+            #webcrumbs .text-3xl {
+                font-size: 30px;
+                line-height: 36px;
+            }
+            #webcrumbs .text-lg {
+                font-size: 18px;
+                line-height: 27px;
+            }
+            #webcrumbs .text-sm {
+                font-size: 14px;
+                line-height: 21px;
+            }
+            #webcrumbs .text-xl {
+                font-size: 20px;
+                line-height: 28px;
+            }
+            #webcrumbs .text-xs {
+                font-size: 12px;
+                line-height: 19.200000000000003px;
+            }
+            #webcrumbs .font-bold {
+                font-weight: 700;
+            }
+            #webcrumbs .font-medium {
+                font-weight: 500;
+            }
+            #webcrumbs .font-semibold {
+                font-weight: 600;
+            }
+            #webcrumbs .text-blue-500 {
+                --tw-text-opacity: 1;
+                color: rgb(59 130 246 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-blue-600 {
+                --tw-text-opacity: 1;
+                color: rgb(37 99 235 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-emerald-500 {
+                --tw-text-opacity: 1;
+                color: rgb(16 185 129 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-emerald-600 {
+                --tw-text-opacity: 1;
+                color: rgb(5 150 105 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-emerald-700 {
+                --tw-text-opacity: 1;
+                color: rgb(4 120 87 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-emerald-800 {
+                --tw-text-opacity: 1;
+                color: rgb(6 95 70 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-gray-500 {
+                --tw-text-opacity: 1;
+                color: rgb(107 114 128 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-gray-600 {
+                --tw-text-opacity: 1;
+                color: rgb(75 85 99 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-gray-700 {
+                --tw-text-opacity: 1;
+                color: rgb(55 65 81 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-gray-800 {
+                --tw-text-opacity: 1;
+                color: rgb(31 41 55 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-indigo-500 {
+                --tw-text-opacity: 1;
+                color: rgb(99 102 241 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-indigo-600 {
+                --tw-text-opacity: 1;
+                color: rgb(79 70 229 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-purple-500 {
+                --tw-text-opacity: 1;
+                color: rgb(168 85 247 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-purple-600 {
+                --tw-text-opacity: 1;
+                color: rgb(147 51 234 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-white {
+                --tw-text-opacity: 1;
+                color: rgb(255 255 255 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-yellow-400 {
+                --tw-text-opacity: 1;
+                color: rgb(250 204 21 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-yellow-500 {
+                --tw-text-opacity: 1;
+                color: rgb(234 179 8 / var(--tw-text-opacity));
+            }
+            #webcrumbs .text-yellow-600 {
+                --tw-text-opacity: 1;
+                color: rgb(202 138 4 / var(--tw-text-opacity));
+            }
+            #webcrumbs .line-through {
+                text-decoration-line: line-through;
+            }
+            #webcrumbs .shadow-lg {
+                --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+                --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+            }
+            #webcrumbs .shadow-lg,
+            #webcrumbs .shadow-md {
+                box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+            }
+            #webcrumbs .shadow-md {
+                --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+                --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+            }
+            #webcrumbs .shadow-xl {
+                --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+                --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+                box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+            }
+            #webcrumbs .transition-all {
+                transition-duration: 0.15s;
+                transition-property: all;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            #webcrumbs .transition-colors {
+                transition-duration: 0.15s;
+                transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            #webcrumbs .transition-transform {
+                transition-duration: 0.15s;
+                transition-property: transform;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            #webcrumbs .duration-200 {
+                transition-duration: 0.2s;
+            }
+            #webcrumbs .duration-300 {
+                transition-duration: 0.3s;
+            }
+            #webcrumbs .duration-500 {
+                transition-duration: 0.5s;
+            }
+            #webcrumbs .duration-700 {
+                transition-duration: 0.7s;
+            }
+            #webcrumbs {
+                font-family: Open Sans !important;
+                font-size: 16px !important;
+            }
+            #webcrumbs :is(.bg-primary-600) {
+                color: hsla(0, 0%, 100%, 0.9) !important;
+            }
+            #webcrumbs .hover\:-translate-y-1:hover {
+                --tw-translate-y: -4px;
+            }
+            #webcrumbs .hover\:-translate-y-1:hover,
+            #webcrumbs .hover\:scale-110:hover {
+                transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate))
+                    skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+            }
+            #webcrumbs .hover\:scale-110:hover {
+                --tw-scale-x: 1.1;
+                --tw-scale-y: 1.1;
+            }
+            #webcrumbs .hover\:transform:hover {
+                transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate))
+                    skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+            }
+            #webcrumbs .hover\:bg-emerald-50:hover {
+                --tw-bg-opacity: 1;
+                background-color: rgb(236 253 245 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .hover\:bg-emerald-500:hover {
+                --tw-bg-opacity: 1;
+                background-color: rgb(16 185 129 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .hover\:bg-emerald-600:hover {
+                --tw-bg-opacity: 1;
+                background-color: rgb(5 150 105 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .hover\:bg-gray-200:hover {
+                --tw-bg-opacity: 1;
+                background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .hover\:bg-primary-700:hover {
+                --tw-bg-opacity: 1;
+                background-color: rgb(97 27 248 / var(--tw-bg-opacity));
+            }
+            #webcrumbs .hover\:text-emerald-200:hover {
+                --tw-text-opacity: 1;
+                color: rgb(167 243 208 / var(--tw-text-opacity));
+            }
+            #webcrumbs .hover\:text-primary-100:hover {
+                --tw-text-opacity: 1;
+                color: rgb(233 229 255 / var(--tw-text-opacity));
+            }
+            #webcrumbs .hover\:text-white:hover {
+                --tw-text-opacity: 1;
+                color: rgb(255 255 255 / var(--tw-text-opacity));
+            }
+            #webcrumbs .hover\:shadow-lg:hover {
+                --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+                --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+            }
+            #webcrumbs .hover\:shadow-lg:hover,
+            #webcrumbs .hover\:shadow-xl:hover {
+                box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+            }
+            #webcrumbs .hover\:shadow-xl:hover {
+                --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+                --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+            }
+            #webcrumbs .focus\:outline-none:focus {
+                outline: 2px solid transparent;
+                outline-offset: 2px;
+            }
+            #webcrumbs .focus\:ring-0:focus {
+                --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width)
+                    var(--tw-ring-offset-color);
+                --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(var(--tw-ring-offset-width)) var(--tw-ring-color);
+                box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+            }
+            #webcrumbs :is(.group:hover .group-hover\:w-full) {
+                width: 100%;
+            }
+            #webcrumbs :is(.group:hover .group-hover\:rotate-6) {
+                --tw-rotate: 6deg;
+                transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate))
+                    skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+            }
+            #webcrumbs :is(.group:hover .group-hover\:scale-110) {
+                --tw-scale-x: 1.1;
+                --tw-scale-y: 1.1;
+                transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate))
+                    skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+            }
+            #webcrumbs :is(.group:hover .group-hover\:scale-125) {
+                --tw-scale-x: 1.25;
+                --tw-scale-y: 1.25;
+                transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate))
+                    skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+            }
+            #webcrumbs :is(.group:hover .group-hover\:transform) {
+                transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate))
+                    skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+            }
+            #webcrumbs :is(.group:hover .group-hover\:text-emerald-600) {
+                --tw-text-opacity: 1;
+                color: rgb(5 150 105 / var(--tw-text-opacity));
+            }
+            @media (min-width: 640px) {
+                #webcrumbs .sm\:grid-cols-2 {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+            }
+            @media (min-width: 768px) {
+                #webcrumbs .md\:mb-0 {
+                    margin-bottom: 0;
+                }
+                #webcrumbs .md\:mt-0 {
+                    margin-top: 0;
+                }
+                #webcrumbs .md\:block {
+                    display: block;
+                }
+                #webcrumbs .md\:flex {
+                    display: flex;
+                }
+                #webcrumbs .md\:hidden {
+                    display: none;
+                }
+                #webcrumbs .md\:grid-cols-3 {
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                }
+                #webcrumbs .md\:flex-row {
+                    flex-direction: row;
+                }
+                #webcrumbs .md\:items-center {
+                    align-items: center;
+                }
+                #webcrumbs .md\:justify-between {
+                    justify-content: space-between;
+                }
+                #webcrumbs .md\:text-4xl {
+                    font-size: 36px;
+                    line-height: 41.4px;
+                }
+            }
+            @media (min-width: 1024px) {
+                #webcrumbs .lg\:grid-cols-4 {
+                    grid-template-columns: repeat(4, minmax(0, 1fr));
+                }
+            }
+
+            body {
+                line-height: inherit;
+                padding: 24px;
+                display: flex;
+                flex-direction: column;
+                min-width: 100vw;
+                min-height: 100vh;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(135deg, #ffffff, #d4d4d4);
+
+            }
+            * Footer Styles */
+footer {
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0,0,0,0.1), transparent);
+  pointer-events: none;
+}
+
+footer h3 {
+  position: relative;
+  display: inline-block;
+}
+
+footer h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #10b981;
+  transition: width 0.3s ease;
+}
+
+footer h3:hover::after {
+  width: 100%;
+}
+
+footer a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  transform: translateX(5px);
+}
+
+footer input {
+  transition: all 0.3s ease;
+}
+
+footer input:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+}
+
+footer button {
+  position: relative;
+  overflow: hidden;
+}
+
+footer button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+footer button:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Enhanced Responsive Styles */
+@media (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  footer .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  footer .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  footer {
+    text-align: center;
+  }
+  
+  footer h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  footer .flex {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .header-container {
+    padding: 1rem;
+  }
+  
+  .cart-button {
+    padding: 0.5rem 1rem;
+  }
+  
+  footer {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Print Styles Enhancement */
+@media print {
+  footer {
+    display: none;
+  }
+  
+  .card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+  
+  .card-container {
+    display: block;
+  }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1a1a1a;
+    color: #ffffff;
+  }
+  
+  .card {
+    background: #2d2d2d;
+    border-color: #404040;
+  }
+  
+  .text-gray-600 {
+    color: #a0a0a0;
+  }
+  
+  .text-gray-800 {
+    color: #e0e0e0;
+  }
+  
+  input, textarea {
+    background: #333333;
+    color: #ffffff;
+  }
+}
+        </style>
+    </head>
+    <body>
+        <div id="webcrumbs">
+            <div data-id="lsES" class="w-[1280px] p-6 mx-auto font-sans bg-gray-50">
+                <nav
+                    data-id="C5W5"
+                    class="bg-emerald-600 rounded-xl shadow-lg mb-8 transition-all duration-300 hover:shadow-xl"
+                >
+                    <div data-id="ON7P" class="container mx-auto px-6 py-3">
+                        <div data-id="mqxR" class="flex items-center justify-between">
+                            <div data-id="dfP8" class="relative group">
+                                <a data-id="8OwR" href="#" class="flex items-center">
+                                    <img
+                                        data-id="JCAq"
+                                        src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=300&amp;q=80"
+                                        alt="Cat Paw Logo"
+                                        class="w-16 h-16 rounded-full object-cover border-2 border-white transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-6 shadow-md"
+                                        keywords="cat paw, logo, pet shop"
+                                    />
+                                    <span data-id="Im3J" class="ml-3 text-white font-bold text-xl hidden md:block"
+                                        >PetFoods</span
+                                    >
+                                </a>
+                                <div
+                                    data-id="CRl-"
+                                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white rounded-full transition-all duration-500 group-hover:w-full"
+                                ></div>
+                            </div>
+                            <details data-id="Oan2" class="md:hidden relative">
+                                <summary data-id="nDt0" class="list-none cursor-pointer">
+                                    <span data-id="9I50" class="material-symbols-outlined text-white text-3xl"
+                                        >menu</span
+                                    >
+                                </summary>
+                                <div
+                                    data-id="mHVt"
+                                    class="absolute right-0 top-10 bg-white rounded-lg shadow-xl p-4 w-48 z-50 transition-all duration-300 animate-fadeIn"
+                                >
+                                    <ul data-id="AP5g" class="space-y-2">
+                                        <li
+                                            data-id="Rrld"
+                                            class="hover:bg-emerald-50 rounded-md transition-colors duration-200"
+                                        >
+                                            <a
+                                                data-id="BAZH"
+                                                href="#"
+                                                class="block py-2 px-3 text-emerald-700 font-medium"
+                                                >Home</a
+                                            >
+                                        </li>
+                                        <li
+                                            data-id="2ecu"
+                                            class="hover:bg-emerald-50 rounded-md transition-colors duration-200"
+                                        >
+                                            <a data-id="r-aA" href="#" class="block py-2 px-3 text-gray-700 font-medium"
+                                                >About</a
+                                            >
+                                        </li>
+                                        <li
+                                            data-id="-3lS"
+                                            class="hover:bg-emerald-50 rounded-md transition-colors duration-200"
+                                        >
+                                            <a data-id="K1cZ" href="#" class="block py-2 px-3 text-gray-700 font-medium"
+                                                >Adoption</a
+                                            >
+                                        </li>
+                                        <li
+                                            data-id="ij5B"
+                                            class="hover:bg-emerald-50 rounded-md transition-colors duration-200"
+                                        >
+                                            <a
+                                                data-id="Qmd-"
+                                                href="myorders.html"
+                                                class="block py-2 px-3 text-gray-700 font-medium"
+                                                >My Orders</a
+                                            >
+                                        </li>
+                                        <li data-id="aXmi" class="mt-3">
+                                            <a
+                                                data-id="jjj0"
+                                                href="#"
+                                                class="block py-2 px-3 bg-primary-600 text-white rounded-md text-center font-medium transition-all duration-300 hover:bg-primary-700 hover:shadow-lg"
+                                            >
+                                                <span
+                                                    data-id="jtlw"
+                                                    class="material-symbols-outlined text-sm mr-1 align-middle"
+                                                    >login</span
+                                                >
+                                                Login
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </details>
+                            <div data-id="IHQN" class="hidden md:flex items-center space-x-10">
+                                <ul data-id="Jc2Y" class="flex space-x-8">
+                                    <li data-id="wJgK" class="relative group">
+                                        <a
+                                            data-id="3fc_"
+                                            href="#"
+                                            class="text-white font-medium hover:text-primary-100 transition-all duration-300"
+                                            >Home</a
+                                        >
+                                        <div
+                                            data-id="4btA"
+                                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white rounded-full transition-all duration-300 group-hover:w-full"
+                                        ></div>
+                                    </li>
+                                    <li data-id="-lmg" class="relative group">
+                                        <a
+                                            data-id="7CfS"
+                                            href="#"
+                                            class="text-white font-medium hover:text-primary-100 transition-all duration-300"
+                                            >About</a
+                                        >
+                                        <div
+                                            data-id="nEll"
+                                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white rounded-full transition-all duration-300 group-hover:w-full"
+                                        ></div>
+                                    </li>
+                                    <li data-id="gfZg" class="relative group">
+                                        <a
+                                            data-id="xIC3"
+                                            href="#"
+                                            class="text-white font-medium hover:text-primary-100 transition-all duration-300"
+                                            >Adoption</a
+                                        >
+                                        <div
+                                            data-id="Ytvu"
+                                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white rounded-full transition-all duration-300 group-hover:w-full"
+                                        ></div>
+                                    </li>
+                                    <li data-id="LXN2" class="relative group">
+                                        <a
+                                            data-id="2oUO"
+                                            href="myorders.html"
+                                            class="text-white font-medium hover:text-primary-100 transition-all duration-300"
+                                            >My Orders</a
+                                        >
+                                        <div
+                                            data-id="SixB"
+                                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-white rounded-full transition-all duration-300 group-hover:w-full"
+                                        ></div>
+                                    </li>
+                                </ul>
+                                <a
+                                    data-id="CYou"
+                                    href="#"
+                                    class="inline-flex items-center px-4 py-2 bg-primary-600 text-white font-medium rounded-lg transition-all duration-300 hover:bg-primary-700 hover:transform hover:-translate-y-1 hover:shadow-lg"
+                                >
+                                    <span data-id="m8v3" class="material-symbols-outlined mr-2 text-sm">login</span>
+                                    Login
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <footer data-id="4LpC" class="mt-3 py-2 bg-emerald-700 rounded-b-xl">
+                        <div data-id="GMX1" class="container mx-auto px-6">
+                            <div
+                                data-id="Gj7f"
+                                class="flex flex-col md:flex-row justify-between items-center text-white text-sm"
+                            >
+                                <p data-id="67uo" class="mb-2 md:mb-0">© 2025 PetFoods. All rights reserved.</p>
+                                <div data-id="e_tQ" class="flex space-x-4">
+                                    <a
+                                        data-id="5koI"
+                                        href="#"
+                                        class="hover:text-emerald-200 transition-colors duration-300 transform hover:scale-110"
+                                        >Privacy Policy</a
+                                    >
+                                    <a
+                                        data-id="F0u2"
+                                        href="#"
+                                        class="hover:text-emerald-200 transition-colors duration-300 transform hover:scale-110"
+                                        >Terms of Service</a
+                                    >
+                                    <a
+                                        data-id="TSYx"
+                                        href="#"
+                                        class="hover:text-emerald-200 transition-colors duration-300 transform hover:scale-110"
+                                        >Contact Us</a
+                                    >
+                                </div>
+                                <div data-id="o349" class="flex space-x-3 mt-2 md:mt-0">
+                                    <a
+                                        data-id="NFGE"
+                                        href="#"
+                                        class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center transition-all duration-300 hover:bg-emerald-500 hover:-translate-y-1"
+                                    >
+                                        <span data-id="pcB3" class="material-symbols-outlined text-sm">facebook</span>
+                                    </a>
+                                    <a
+                                        data-id="j8lk"
+                                        href="#"
+                                        class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center transition-all duration-300 hover:bg-emerald-500 hover:-translate-y-1"
+                                    >
+                                        <span data-id="SN5-" class="material-symbols-outlined text-sm">twitter</span>
+                                    </a>
+                                    <a
+                                        data-id="zo_B"
+                                        href="#"
+                                        class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center transition-all duration-300 hover:bg-emerald-500 hover:-translate-y-1"
+                                    >
+                                        <span data-id="PeEF" class="material-symbols-outlined text-sm">instagram</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </nav>
+                <header
+                    data-id="Enps"
+                    class="flex flex-col md:flex-row justify-between items-center p-6 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl shadow-md mb-10 animate-fadeIn"
+                >
+                    <div data-id="V6R9" class="mb-4 md:mb-0 animate-slideFromLeft">
+                        <h1 data-id="3ukc" class="text-3xl md:text-4xl font-bold text-emerald-800">
+                            Premium Pet Foods
+                        </h1>
+                        <p data-id="R3jU" class="text-gray-600 mt-2">Quality nutrition for your beloved pets</p>
+                    </div>
+                    <button
+                        data-id="iCub"
+                        class="group flex items-center px-6 py-3 bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-semibold rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:transform hover:-translate-y-1 animate-slideFromRight"
+                    >
+                        <span
+                            data-id="JVmc"
+                            class="relative mr-2 transition-all duration-300 group-hover:transform group-hover:scale-125"
+                        >
+                            <span data-id="fa1S" class="material-symbols-outlined">shopping_cart</span>
+                        </span>
+                        <span data-id="aWgy" class="relative">
+                            View Cart
+                            <span
+                                data-id="Ix5H"
+                                class="absolute -top-1 -right-6 flex items-center justify-center w-5 h-5 bg-red-500 text-white text-xs rounded-full animate-pulse"
+                                >0</span
+                            >
+                        </span>
+                    </button>
+                </header>
+                <div data-id="s7_U" class="mb-8 p-4 bg-white rounded-lg shadow-md animate-fadeIn">
+                    <div data-id="UtzM" class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                        <div data-id="67Q0" class="flex items-center">
+                            <span data-id="8Wip" class="material-symbols-outlined text-emerald-600 mr-2"
+                                >filter_alt</span
+                            >
+                            <h3 data-id="pKGa" class="font-semibold text-gray-700">Filter Products:</h3>
+                        </div>
+                        <div data-id="WJRA" class="flex flex-wrap gap-2">
+                            <button
+                                data-id="vu55"
+                                class="px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full transition-all duration-300 hover:bg-emerald-600 hover:text-white"
+                            >
+                                All Products
+                            </button>
+                            <button
+                                data-id="vRD1"
+                                class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full transition-all duration-300 hover:bg-emerald-600 hover:text-white"
+                            >
+                                Dog Food
+                            </button>
+                            <button
+                                data-id="YnQT"
+                                class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full transition-all duration-300 hover:bg-emerald-600 hover:text-white"
+                            >
+                                Cat Food
+                            </button>
+                            <button
+                                data-id="UV7c"
+                                class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full transition-all duration-300 hover:bg-emerald-600 hover:text-white"
+                            >
+                                Treats
+                            </button>
+                            <button
+                                data-id="eXI7"
+                                class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full transition-all duration-300 hover:bg-emerald-600 hover:text-white"
+                            >
+                                Supplements
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div data-id="np7Y" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+                    <div
+                        data-id="s_oo"
+                        class="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl group animate-fadeIn"
+                    >
+                        <div data-id="UOQs" class="relative overflow-hidden h-48">
+                            <img
+                                data-id="tQ5s"
+                                src="https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3MzkyNDZ8MHwxfHNlYXJjaHwxfHxkb2clMjBmb29kfGVufDB8fHx8MTc0Njg2NzY1M3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+                                alt="Premium Dog Food"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                keywords="dog food, premium, pet food, kibble"
+                            />
+                            <div
+                                data-id="ikTc"
+                                class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full"
+                            >
+                                -15%
+                            </div>
+                        </div>
+                        <div data-id="TzZs" class="p-5">
+                            <h3
+                                data-id="2jsb"
+                                class="font-bold text-lg mb-2 text-gray-800 group-hover:text-emerald-600 transition-colors duration-300"
+                            >
+                                Premium Dog Food - Chicken Flavor
+                            </h3>
+                            <div data-id="JXeh" class="flex items-center mb-3">
+                                <div data-id="taRD" class="flex text-yellow-400">
+                                    <span data-id="ESnj" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="2Bcv" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="pLY_" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="WOQr" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="uXXb" class="material-symbols-outlined text-sm">star_half</span>
+                                </div>
+                                <span data-id="NwKJ" class="text-xs text-gray-500 ml-1">(4.5/5)</span>
+                            </div>
+                            <p data-id="CpFr" class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                High-quality dog food made with real chicken, vegetables, and essential nutrients for
+                                your dog&#x27;s health.
+                            </p>
+                            <div data-id="wVvw" class="flex justify-between items-center mb-4">
+                                <p data-id="dpHy" class="font-bold text-xl text-emerald-600">$20.00</p>
+                                <div data-id="pZ5_" class="flex items-center gap-1">
+                                    <span data-id="bJk5" class="text-xs text-gray-500 line-through">$23.50</span>
+                                    <span data-id="BCkX" class="material-symbols-outlined text-emerald-500 text-sm"
+                                        >eco</span
+                                    >
+                                </div>
+                            </div>
+                            <div data-id="XfAq" class="flex items-center justify-between mb-4">
+                                <div
+                                    data-id="a1kd"
+                                    class="flex items-center border border-gray-300 rounded-lg overflow-hidden"
+                                >
+                                    <button
+                                        data-id="Q9cI"
+                                        class="px-2 py-1 bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-300"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        data-id="dDuz"
+                                        type="number"
+                                        min="1"
+                                        class="w-12 text-center border-none focus:ring-0 focus:outline-none"
+                                        value="1"
+                                    />
+                                    <button
+                                        data-id="ePNr"
+                                        class="px-2 py-1 bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-300"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <p data-id="5rKe" class="text-sm font-medium text-gray-700">Total: $20.00</p>
+                            </div>
+                            <button
+                                data-id="SJes"
+                                class="w-full py-3 bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 flex items-center justify-center"
+                                data-modal-target="customerDetailsModal"
+                            >
+                                <span data-id="i7w3" class="material-symbols-outlined mr-2">add_shopping_cart</span> Add
+                                to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        data-id="974_"
+                        class="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl group animate-fadeIn"
+                    >
+                        <div data-id="Y0En" class="relative overflow-hidden h-48">
+                            <img
+                                data-id="QHiH"
+                                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                                alt="Organic Cat Food"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                keywords="cat food, organic, natural, pet food"
+                            />
+                            <div
+                                data-id="xXL_"
+                                class="absolute top-2 right-2 bg-emerald-500 text-white text-xs font-bold px-2 py-1 rounded-full"
+                            >
+                                NEW
+                            </div>
+                        </div>
+                        <div data-id="k0aQ" class="p-5">
+                            <h3
+                                data-id="29c7"
+                                class="font-bold text-lg mb-2 text-gray-800 group-hover:text-emerald-600 transition-colors duration-300"
+                            >
+                                Organic Cat Food - Fish Formula
+                            </h3>
+                            <div data-id="GJKw" class="flex items-center mb-3">
+                                <div data-id="H9tC" class="flex text-yellow-400">
+                                    <span data-id="PoFp" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="R0fa" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="wuiD" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="5pwE" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="0jTH" class="material-symbols-outlined text-sm">star_outline</span>
+                                </div>
+                                <span data-id="dfRK" class="text-xs text-gray-500 ml-1">(4.0/5)</span>
+                            </div>
+                            <p data-id="mmt7" class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                Organic fish-based food specially formulated for sensitive cats with added omega oils
+                                for coat health.
+                            </p>
+                            <div data-id="H51i" class="flex justify-between items-center mb-4">
+                                <p data-id="H6Pu" class="font-bold text-xl text-emerald-600">$24.99</p>
+                                <div data-id="rMHg" class="flex items-center gap-1">
+                                    <span data-id="Bvh5" class="material-symbols-outlined text-emerald-500 text-sm"
+                                        >verified</span
+                                    >
+                                    <span data-id="DIk1" class="text-xs text-emerald-600">Organic</span>
+                                </div>
+                            </div>
+                            <div data-id="jeCk" class="flex items-center justify-between mb-4">
+                                <div
+                                    data-id="cCaX"
+                                    class="flex items-center border border-gray-300 rounded-lg overflow-hidden"
+                                >
+                                    <button
+                                        data-id="VA0k"
+                                        class="px-2 py-1 bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-300"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        data-id="4ZjQ"
+                                        type="number"
+                                        min="1"
+                                        class="w-12 text-center border-none focus:ring-0 focus:outline-none"
+                                        value="1"
+                                    />
+                                    <button
+                                        data-id="nqf2"
+                                        class="px-2 py-1 bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-300"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <p data-id="zV6m" class="text-sm font-medium text-gray-700">Total: $24.99</p>
+                            </div>
+                            <button
+                                data-id="a8T6"
+                                class="w-full py-3 bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 flex items-center justify-center"
+                                data-modal-target="customerDetailsModal"
+                            >
+                                <span data-id="Qxjp" class="material-symbols-outlined mr-2">add_shopping_cart</span> Add
+                                to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        data-id="sD9r"
+                        class="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl group animate-fadeIn"
+                    >
+                        <div data-id="Tlfz" class="relative overflow-hidden h-48">
+                            <img
+                                data-id="PoDg"
+                                src="https://images.unsplash.com/photo-1623341214825-9f4f963727da?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                                alt="Puppy Food"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                keywords="puppy food, dog food, pet nutrition, growth"
+                            />
+                            <div
+                                data-id="4GZn"
+                                class="absolute top-2 right-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full"
+                            >
+                                BESTSELLER
+                            </div>
+                        </div>
+                        <div data-id="DDnD" class="p-5">
+                            <h3
+                                data-id="2qC4"
+                                class="font-bold text-lg mb-2 text-gray-800 group-hover:text-emerald-600 transition-colors duration-300"
+                            >
+                                Puppy Growth Formula - Beef &amp; Rice
+                            </h3>
+                            <div data-id="Z2fy" class="flex items-center mb-3">
+                                <div data-id="t2l3" class="flex text-yellow-400">
+                                    <span data-id="4l8r" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="7r4d" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="ESpV" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="vcSB" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="Fz1r" class="material-symbols-outlined text-sm">star</span>
+                                </div>
+                                <span data-id="_dXt" class="text-xs text-gray-500 ml-1">(5.0/5)</span>
+                            </div>
+                            <p data-id="6UGs" class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                Special formula enriched with DHA for brain development and balanced nutrients for
+                                growing puppies.
+                            </p>
+                            <div data-id="RH6K" class="flex justify-between items-center mb-4">
+                                <p data-id="Dwne" class="font-bold text-xl text-emerald-600">$28.50</p>
+                                <div data-id="1Q7V" class="flex items-center gap-1">
+                                    <span data-id="YQ4b" class="material-symbols-outlined text-blue-500 text-sm"
+                                        >pets</span
+                                    >
+                                    <span data-id="DNs4" class="text-xs text-blue-600">Puppy Formula</span>
+                                </div>
+                            </div>
+                            <div data-id="UFsg" class="flex items-center justify-between mb-4">
+                                <div
+                                    data-id="Jf8x"
+                                    class="flex items-center border border-gray-300 rounded-lg overflow-hidden"
+                                >
+                                    <button
+                                        data-id="vJDl"
+                                        class="px-2 py-1 bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-300"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        data-id="qCfr"
+                                        type="number"
+                                        min="1"
+                                        class="w-12 text-center border-none focus:ring-0 focus:outline-none"
+                                        value="1"
+                                    />
+                                    <button
+                                        data-id="pWoC"
+                                        class="px-2 py-1 bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-300"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <p data-id="fikK" class="text-sm font-medium text-gray-700">Total: $28.50</p>
+                            </div>
+                            <button
+                                data-id="7OAl"
+                                class="w-full py-3 bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 flex items-center justify-center"
+                                data-modal-target="customerDetailsModal"
+                            >
+                                <span data-id="X2zd" class="material-symbols-outlined mr-2">add_shopping_cart</span> Add
+                                to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        data-id="B7VU"
+                        class="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl group animate-fadeIn"
+                    >
+                        <div data-id="BeZt" class="relative overflow-hidden h-48">
+                            <img
+                                data-id="NUAc"
+                                src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3MzkyNDZ8MHwxfHNlYXJjaHwxfHxzZW5pb3IlMjBjYXQlMjBmb29kfGVufDB8fHx8MTc0Njg2NzY4Nnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+                                alt="Senior Cat Food"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                keywords="senior cat food, elderly cats, cat nutrition, joint health"
+                            />
+                        </div>
+                        <div data-id="7aab" class="p-5">
+                            <h3
+                                data-id="VnYr"
+                                class="font-bold text-lg mb-2 text-gray-800 group-hover:text-emerald-600 transition-colors duration-300"
+                            >
+                                Senior Cat Formula - Chicken &amp; Rice
+                            </h3>
+                            <div data-id="jTho" class="flex items-center mb-3">
+                                <div data-id="vlUA" class="flex text-yellow-400">
+                                    <span data-id="naVM" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="M2jC" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="A84t" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="YsKI" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="-IEZ" class="material-symbols-outlined text-sm">star_half</span>
+                                </div>
+                                <span data-id="BDq5" class="text-xs text-gray-500 ml-1">(4.7/5)</span>
+                            </div>
+                            <p data-id="LqW9" class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                Specially formulated for senior cats with joint support and easy-to-digest ingredients.
+                            </p>
+                            <div data-id="lICf" class="flex justify-between items-center mb-4">
+                                <p data-id="Yk21" class="font-bold text-xl text-emerald-600">$22.75</p>
+                                <div data-id="12Zv" class="flex items-center gap-1">
+                                    <span data-id="dVIk" class="material-symbols-outlined text-purple-500 text-sm"
+                                        >elderly</span
+                                    >
+                                    <span data-id="MOZx" class="text-xs text-purple-600">Senior Formula</span>
+                                </div>
+                            </div>
+                            <div data-id="KG9s" class="flex items-center justify-between mb-4">
+                                <div
+                                    data-id="5uxD"
+                                    class="flex items-center border border-gray-300 rounded-lg overflow-hidden"
+                                >
+                                    <button
+                                        data-id="2Hho"
+                                        class="px-2 py-1 bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-300"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        data-id="LfvG"
+                                        type="number"
+                                        min="1"
+                                        class="w-12 text-center border-none focus:ring-0 focus:outline-none"
+                                        value="1"
+                                    />
+                                    <button
+                                        data-id="poUe"
+                                        class="px-2 py-1 bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-300"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <p data-id="6DV_" class="text-sm font-medium text-gray-700">Total: $22.75</p>
+                            </div>
+                            <button
+                                data-id="Zr51"
+                                class="w-full py-3 bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 flex items-center justify-center"
+                                data-modal-target="customerDetailsModal"
+                            >
+                                <span data-id="rw4A" class="material-symbols-outlined mr-2">add_shopping_cart</span> Add
+                                to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        data-id="WBRY"
+                        class="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl group animate-fadeIn"
+                    >
+                        <div data-id="0Xmr" class="relative overflow-hidden h-48">
+                            <img
+                                data-id="geOi"
+                                src="https://images.unsplash.com/photo-1536998744104-ad08398fabcf?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3MzkyNDZ8MHwxfHNlYXJjaHwxfHxncmFpbiUyMGZyZWV8ZW58MHx8fHwxNzQ2ODY3Njk1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+                                alt="Grain-Free Dog Food"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                keywords="grain free, dog food, allergy friendly, pet nutrition"
+                            />
+                            <div
+                                data-id="Tq7x"
+                                class="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full"
+                            >
+                                GRAIN FREE
+                            </div>
+                        </div>
+                        <div data-id="G9DI" class="p-5">
+                            <h3
+                                data-id="rrzM"
+                                class="font-bold text-lg mb-2 text-gray-800 group-hover:text-emerald-600 transition-colors duration-300"
+                            >
+                                Grain-Free Dog Food - Lamb Formula
+                            </h3>
+                            <div data-id="mUXN" class="flex items-center mb-3">
+                                <div data-id="Ucta" class="flex text-yellow-400">
+                                    <span data-id="TXLu" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="PPv6" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="VOKX" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="pyi0" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="G4Cd" class="material-symbols-outlined text-sm">star_outline</span>
+                                </div>
+                                <span data-id="wX7-" class="text-xs text-gray-500 ml-1">(4.1/5)</span>
+                            </div>
+                            <p data-id="Zu33" class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                Premium grain-free formula with real lamb, ideal for dogs with food sensitivities.
+                            </p>
+                            <div data-id="Sbbe" class="flex justify-between items-center mb-4">
+                                <p data-id="DagQ" class="font-bold text-xl text-emerald-600">$29.99</p>
+                                <div data-id="BXb0" class="flex items-center gap-1">
+                                    <span data-id="bZku" class="material-symbols-outlined text-yellow-500 text-sm"
+                                        >favorite</span
+                                    >
+                                    <span data-id="Mtvx" class="text-xs text-yellow-600">Allergy Friendly</span>
+                                </div>
+                            </div>
+                            <div data-id="DtAi" class="flex items-center justify-between mb-4">
+                                <div
+                                    data-id="3epu"
+                                    class="flex items-center border border-gray-300 rounded-lg overflow-hidden"
+                                >
+                                    <button
+                                        data-id="jAPg"
+                                        class="px-2 py-1 bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-300"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        data-id="iyyR"
+                                        type="number"
+                                        min="1"
+                                        class="w-12 text-center border-none focus:ring-0 focus:outline-none"
+                                        value="1"
+                                    />
+                                    <button
+                                        data-id="1320"
+                                        class="px-2 py-1 bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-300"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <p data-id="aJ26" class="text-sm font-medium text-gray-700">Total: $29.99</p>
+                            </div>
+                            <button
+                                data-id="a0eW"
+                                class="w-full py-3 bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 flex items-center justify-center"
+                                data-modal-target="customerDetailsModal"
+                            >
+                                <span data-id="aeXl" class="material-symbols-outlined mr-2">add_shopping_cart</span> Add
+                                to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        data-id="jYqR"
+                        class="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl group animate-fadeIn"
+                    >
+                        <div data-id="p_v7" class="relative overflow-hidden h-48">
+                            <img
+                                data-id="bC6E"
+                                src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                                alt="Dog Dental Treats"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                keywords="dog treats, dental care, pet treats, doggy snacks"
+                            />
+                            <div
+                                data-id="EwlX"
+                                class="absolute top-2 right-2 bg-indigo-500 text-white text-xs font-bold px-2 py-1 rounded-full"
+                            >
+                                DENTAL CARE
+                            </div>
+                        </div>
+                        <div data-id="2zB8" class="p-5">
+                            <h3
+                                data-id="bXiO"
+                                class="font-bold text-lg mb-2 text-gray-800 group-hover:text-emerald-600 transition-colors duration-300"
+                            >
+                                Dental Care Dog Treats - Mint Flavor
+                            </h3>
+                            <div data-id="gXJ3" class="flex items-center mb-3">
+                                <div data-id="09qY" class="flex text-yellow-400">
+                                    <span data-id="gVHL" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="siyC" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="ZK9l" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="PcEK" class="material-symbols-outlined text-sm">star</span>
+                                    <span data-id="n3iy" class="material-symbols-outlined text-sm">star_half</span>
+                                </div>
+                                <span data-id="eta8" class="text-xs text-gray-500 ml-1">(4.6/5)</span>
+                            </div>
+                            <p data-id="KztU" class="text-gray-600 text-sm mb-4 line-clamp-2">
+                                Crunchy treats that help clean teeth and freshen breath while providing a tasty snack.
+                            </p>
+                            <div data-id="BfwZ" class="flex justify-between items-center mb-4">
+                                <p data-id="r_ui" class="font-bold text-xl text-emerald-600">$16.50</p>
+                                <div data-id="Dgvw" class="flex items-center gap-1">
+                                    <span data-id="I5m5" class="material-symbols-outlined text-indigo-500 text-sm"
+                                        >cleaning_services</span
+                                    >
+                                    <span data-id="aRoR" class="text-xs text-indigo-600">Freshens Breath</span>
+                                </div>
+                            </div>
+                            <div data-id="jyps" class="flex items-center justify-between mb-4">
+                                <div
+                                    data-id="QClE"
+                                    class="flex items-center border border-gray-300 rounded-lg overflow-hidden"
+                                >
+                                    <button
+                                        data-id="O4PH"
+                                        class="px-2 py-1 bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-300"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        data-id="RuPl"
+                                        type="number"
+                                        min="1"
+                                        class="w-12 text-center border-none focus:ring-0 focus:outline-none"
+                                        value="1"
+                                    />
+                                    <button
+                                        data-id="GVu8"
+                                        class="px-2 py-1 bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors duration-300"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <p data-id="7FCy" class="text-sm font-medium text-gray-700">Total: $16.50</p>
+                            </div>
+                            <button
+                                data-id="ecdU"
+                                class="w-full py-3 bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 flex items-center justify-center"
+                                data-modal-target="customerDetailsModal"
+                            >
+                                <span data-id="Wror" class="material-symbols-outlined mr-2">add_shopping_cart</span> Add
+                                to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Section -->
+            <footer class="bg-emerald-800 text-white py-12 mt-12">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        <!-- Company Info -->
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold mb-4">PetFoods</h3>
+                            <p class="text-emerald-100">Providing quality nutrition for your beloved pets since 2010. We care about your pet's health and happiness.</p>
+                            <div class="flex space-x-4 mt-4">
+                                <a href="#" class="text-white hover:text-emerald-300 transition-colors">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                                <a href="#" class="text-white hover:text-emerald-300 transition-colors">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                                <a href="#" class="text-white hover:text-emerald-300 transition-colors">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Links -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                            <ul class="space-y-2">
+                                <li><a href="#" class="text-emerald-100 hover:text-white transition-colors">About Us</a></li>
+                                <li><a href="#" class="text-emerald-100 hover:text-white transition-colors">Products</a></li>
+                                <li><a href="#" class="text-emerald-100 hover:text-white transition-colors">Adoption</a></li>
+                                <li><a href="#" class="text-emerald-100 hover:text-white transition-colors">Contact</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Contact Info -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                            <ul class="space-y-2 text-emerald-100">
+                                <li class="flex items-center">
+                                    <i class="bi bi-geo-alt mr-2"></i>
+                                    123 Pet Street, Animal City
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="bi bi-telephone mr-2"></i>
+                                    +1 234 567 890
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="bi bi-envelope mr-2"></i>
+                                    info@petfoods.com
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Newsletter -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                            <p class="text-emerald-100 mb-4">Subscribe to our newsletter for updates and special offers.</p>
+                            <form class="space-y-2">
+                                <input type="email" placeholder="Enter your email" class="w-full px-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                <button type="submit" class="w-full bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors">
+                                    Subscribe
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Bottom Footer -->
+                    <div class="border-t border-emerald-700 mt-8 pt-8 text-center text-emerald-100">
+                        <p>&copy; 2024 PetFoods. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
